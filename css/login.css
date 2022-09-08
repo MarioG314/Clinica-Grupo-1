@@ -1,0 +1,44 @@
+.paleta{
+   color: #F1FAFB;
+   color: #A0E4F1;
+   color: #9DC6FF;
+   color: #4993FA;
+}
+/*
+.image-back-log{
+   background-image: url(../img/img-carrousel-1.jpg);
+   height: 300px;
+}
+
+.estilo-1{
+   margin-top: -150px;
+   backdrop-filter: blur(30px);
+   
+}
+
+.color-back{
+   background-color: #9DC6FF
+} */
+
+.limiter{
+   width: 100%;
+   margin: 0 auto;
+   background-color: #A0E4F1;
+   background-image: radial-gradient(circle, #F1FAFB, #A0E4F1, #4993FA)
+}
+
+.background-img{
+   background-image: url(../img/background-login.jpg);
+}
+
+.container-login{
+   width: 100%;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+
+/*guia https://colorlib.com/etc/lf/Login_v12/index.html */
