@@ -1,0 +1,23 @@
+
+.bg-404-text{
+   height: 100vh;
+   width: 100%;
+}
+
+.bg-404{
+   background-image: url(../img/img-404-S.jpg);
+   background-position: center;
+   background-size: cover;
+   height: 100vh;   
+   width: 100%;   
+}
+
+@media (min-width: 700px) {
+   .bg-404{
+      background-image: url(../img/img-404-L.jpg);
+      background-position: center;
+      background-size: cover;
+      height: 100vh;   
+      width: 100%;   
+   }
+}
