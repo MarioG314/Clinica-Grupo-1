@@ -1,0 +1,80 @@
+
+
+body{
+    font-family: 'Roboto Slab', serif;
+    height: 100vh;
+}
+
+header{
+    background-image: url('/img/publicidad4.jpg');
+    background-size:cover;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+}
+.logo{
+    width: 90px;
+    border-radius: 50px;
+    padding: 5px;
+    
+}
+.nav-bg{
+    background-color: rgba(253, 250, 250, 0.857);
+}
+.navbar-inverse li a{
+    color: #1100cd;
+}
+/*Mouse encima*/
+.navbar-inverse li a:hover{
+    color: #F0EABE;
+}
+
+
+.title{
+    color: #3B9AE1;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    transform:translateY(-30%);
+}
+.span{
+    color: #1505c2;
+}
+
+.history{
+    background: #F1FAFB;
+    
+}
+.col-history{
+    margin: 5px;
+    padding: 30px;
+}
+
+.image{
+    max-width: 100%;
+    margin-top: 10%;
+}
+
+.section{
+    background:#F0EABE;
+}
+.section p{
+    color: #1505c2;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.logo-footer{
+    width: 180px;
+    padding: 5px;
+    border-radius: 100%;
+}
+.bg-footer{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,132,157,1) 100%);
+}
+.map{
+width: 80%;
+border: 0;
+}
+
