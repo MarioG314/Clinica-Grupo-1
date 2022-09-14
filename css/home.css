@@ -6,7 +6,7 @@ body{
 }
 
 header{
-    background-image: url('/img/publicidad4.jpg');
+    background-image: url('../img/publicidad5.jpg');
     background-size:cover;
     height: 550px;
     position: relative;
