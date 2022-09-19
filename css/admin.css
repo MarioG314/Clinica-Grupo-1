@@ -7,6 +7,8 @@
 
 }
 
+.btn-table-modal-width{max-width: 33.33%;}
+
 /* .admin-modal-body{
 background-color: #4993FA ;
 
@@ -30,8 +32,8 @@ background-color: #4993FA ;
     
      }
 
-
+/* 
      @media (max-width: 576px) { 
         
-        .letter-size-table{font-size: 0.3rem ;}
-     .admin-icon-table{font-size: 0.5rem;} }
+        .letter-size-table{font-size: 0.4rem ;}
+     .admin-icon-table{font-size: 0.6rem;} } */
