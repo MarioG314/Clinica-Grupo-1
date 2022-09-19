@@ -11,6 +11,16 @@ body{
    font-family: 'Roboto Slab', serif;;
 }
 
+.logo{
+   width: 50px;
+   border-radius: 40px;
+   
+}
+
+.nav-bg{
+   background-color: rgba(252, 252, 252, 0.935);
+}
+
 .btn-paciente-med-style{
    background-color: #4993FA;
    color: #F1FAFB;
