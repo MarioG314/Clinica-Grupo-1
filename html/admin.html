@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+
+  <!-- link bootstrap -->
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+
+  <!--Css-->
+
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="../css/home.css" />
+
+  <!--Fuente-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/7d7ea919ec.js" crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm fixed-top nav-bg navbar-inverse">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../html/home.html">
+          <img src="../img/logo2.jpeg" alt="Logo" class="logo" />
+        </a>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menú Nav -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item me-4">
+              <a class="nav-link" href="../html/404.html">
+                <dt>Publicidades</dt>
+              </a>
+            </li>
+            <li class="nav-item me-4">
+              <a class="nav-link" href="../html/404.html">
+                <dt>Salir</dt>
+              </a>
+            </li>
+      
+          </ul>
+          <!-- Fin Menú NaV -->
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <main>
+
+    <!-- begin-tags-items -->
+    <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+          type="button" role="tab" aria-controls="pills-home" aria-selected="true">Usuarios</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Servicios</button>
+      </li>
+
+
+    </ul>
+
+    <!-- End-tags-items -->
+
+    <!-- begin-tags-content -->
+    <div class="tab-content" id="pills-tabContent">
+      <!-- begin-tag-users -->
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+        tabindex="0">
+        <div class="container mt-5">
+          <table class="table border text-light ">
+            <thead class="table-head">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Rol</th>
+                <th>Especialidad</th>
+                <th>Matrícula</th>
+
+                <th class="ps-4" scope="col">Administrar</th>
+              </tr>
+            </thead>
+            <tbody class="text-dark">
+              <tr>
+                <th scope="row">1</th>
+                <td>Marcos</td>
+                <td>Admin</td>
+                <td></td>
+                <td></td>
+
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Juan</td>
+                <td>Médico</td>
+                <td>Ginecología</td>
+                <td>14587295</td>
+
+                <td>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid fa-trash-can fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid fa-pen-to-square  fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <i class="fa-solid fa-check fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade   " id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+                        <div class="modal-header admin-modal-header">
+
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body d-flex justify-content-center admin-modal-body">
+
+                          <p class="fs-5 mt-4  "> Desea habilitar al usuario</p>
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rechazar</button>
+                          <button type="button" class="btn btn-primary">Habilitar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                   
+                  
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Lucía</td>
+                <td>Paciente</td>
+                <td></td>
+                <td></td>
+
+                <td>
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid fa-trash-can fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid fa-pen-to-square  fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <i class="fa-solid fa-check fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade   " id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+                        <div class="modal-header admin-modal-header">
+
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body d-flex justify-content-center admin-modal-body">
+
+                          <p class="fs-5 mt-4  "> Desea habilitar al usuario</p>
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rechazar</button>
+                          <button type="button" class="btn btn-primary">Habilitar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <!-- end-tag-users -->
+
+      <!-- begin-tag-publicity -->
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+        <div class="container mt-5">
+          <table class="table border text-light ">
+            <thead class="table-head">
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Publicidad</th>
+                <th scope="col">Categoría</th>
+
+                <th scope="col">Descripción</th>
+                <th class="ps-4" scope="col">Administrar</th>
+              </tr>
+            </thead>
+            <tbody class="text-dark">
+              <tr>
+                <th scope="row">385</th>
+                <td> <img src="" alt="">  Publicidad 1</td>
+                <td>Cardiología</td>
+
+                <td></td>
+                <td >
+
+       <!-- Button trigger modal -->
+       <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        <i class="fa-solid fa-trash-can fs-3"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+        <i class="fa-solid fa-pen-to-square  fs-3"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+        <i class="fa-solid fa-star fs-3 text-warning"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade   " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header admin-modal-header">
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body d-flex justify-content-center admin-modal-body">
+
+              <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
+
+            </div>
+
+            <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sí</button>
+              <button type="button" class="btn btn-primary">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">386</th>
+                <td><img src="" alt="">  Publicidad 2</td>
+                <td>Pediatría</td>
+
+                <td>
+
+                </td>
+                <td>
+       <!-- Button trigger modal -->
+       <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+        <i class="fa-solid fa-trash-can fs-3"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
+        <i class="fa-solid fa-pen-to-square  fs-3"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+        <i class="fa-solid fa-star fs-3 "></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade   " id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header admin-modal-header">
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body d-flex justify-content-center admin-modal-body">
+
+              <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
+
+            </div>
+
+            <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sí</button>
+              <button type="button" class="btn btn-primary">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+                  
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">387</th>
+                <td><img src="" alt="">  Publicidad 3</td>
+                <td>Ginecología</td>
+
+                <td>
+
+                </td>
+                <td>
+                   <!-- Button trigger modal -->
+                   <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop7">
+                    <i class="fa-solid fa-trash-can fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop7" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop8">
+                    <i class="fa-solid fa-pen-to-square  fs-3"></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop8" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                    <i class="fa-solid fa-star fs-3 "></i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade   " id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+                        <div class="modal-header admin-modal-header">
+
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body d-flex justify-content-center admin-modal-body">
+
+                          <p class="fs-5 mt-4  "> Desea resaltar la Publicidad</p>
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                          <button type="button" class="btn btn-primary">Sí</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                   
+                  
+
+              
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- end-tag-publicity -->
+
+    </div>
+    <!-- end-tags-content -->
+
+  </main>
+
+  <footer>
+    <div class="container-fluid mt-5 p-3 bg-footer text-white bottom-1">
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-12 col-sm-5 col-md-4 col-lg-4 m-2 ">
+          <p class="fs-6 fw-bold">Información </p>
+          <i class="fa-solid fa-phone"> </i><span> 003-521422</span><br>
+          <i class="fa-solid fa-location-dot"> </i><a
+            href="https://www.google.com.ar/maps/place/RollingCode+School/@-26.8366961,-65.2093905,17z/data=!3m1!4b1!4m5!3m4!1s0x94225d3ad7f30f1d:0xf8606cd659b8e3e4!8m2!3d-26.8367009!4d-65.2072018"
+            class="text-decoration-none text-white"> Gral. Paz 576, Tucumán</a><br>
+          <i class="fa-solid fa-bus-simple"></i> <span>Linea: 25, 32, 15</span><br>
+          <i class="fa-solid fa-envelope"></i> <a href="404.html" class="text-decoration-none text-white">
+            rollingclinic@gmail.com</a>
+        </div>
+        <div class="col-12 col-sm-5 col-md-5 col-lg-4 m-2">
+          <iframe class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370777513!2d-65.20939048526866!3d-26.836696096501143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1656941154233!5m2!1ses-419!2sar"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="container-fluid mt-5 p-3 bg-footer text-white bottom-1">
+        <div class="row d-flex justify-content-center m-3">
+          <div class="col-sm-5 col-md-3 col-lg-3">
+            <a href="#main"><img src="../img/logo1.jpeg" alt="Logo" class="img-fluid rounded-pill logo-footer"></a>
+          </div>
+          <div class="col-sm-5 col-md-3 col-lg-3 d-flex justify-content-around m-3">
+            <a href="./404.html" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+            <a href="./404.html" class="text-white"><i class="fa-brands fa-twitter"></i></a>
+            <a href="./404.html" class="text-white"><i class="fa-brands fa-facebook"></i></a>
+          </div>
+          <div class="col-sm-12 col-md-3  col-lg-3 fw-bold m-3">
+            <p>Brindamos servicios con eficiencia, honestidad y calidez
+              con un excelente equipo humano comprometidos
+              con nuestros pacientes.</p>
+          </div>
+          <div class="text-center p-3">
+            <p>&copy; RollingClinic. Comision 9i-Grupo1. 2022</p>
+          </div>
+        </div>
+  </footer>
+
+
+
+
+
+
+
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
