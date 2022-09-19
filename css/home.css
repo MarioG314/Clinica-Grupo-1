@@ -13,13 +13,12 @@ header{
     overflow: hidden;
 }
 .logo{
-    width: 90px;
-    border-radius: 50px;
-    padding: 5px;
-    
+    width: 50px;
+    border-radius: 40px;
+    border: 1px solid #1100cd;
 }
 .nav-bg{
-    background-color: rgba(253, 250, 250, 0.857);
+    background-color: rgba(252, 252, 252, 0.889);
 }
 .navbar-inverse li a{
     color: #1100cd;
@@ -80,3 +79,21 @@ width: 80%;
 border: 0;
 }
 
+.card-one{
+    background-color: #c7c8c8;
+}
+.cards{
+    background:  #c7c8c8;
+}
+
+
+.icon{
+    background-color:  #9cdae1;
+    width: 100%;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 40px;
+    
+}
