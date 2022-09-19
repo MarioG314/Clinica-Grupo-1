@@ -1,7 +1,7 @@
 
 
 .table-head{
-    background-color: #4993FA;
+    background-color: #4993FA ;
 
 
 
@@ -13,3 +13,25 @@ background-color: #4993FA ;
 
 
 } */
+
+@media (max-width: 768px) { 
+.letter-size-table{font-size: 0.7rem ;}
+.admin-icon-table{font-size: 1rem;}
+
+
+
+ }
+
+ @media (min-width: 768px) { 
+    
+    .admin-icon-table{font-size: 1.5rem;}
+    
+    
+    
+     }
+
+
+     @media (max-width: 576px) { 
+        
+        .letter-size-table{font-size: 0.3rem ;}
+     .admin-icon-table{font-size: 0.5rem;} }
