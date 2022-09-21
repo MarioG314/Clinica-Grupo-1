@@ -75,27 +75,31 @@
             <h2 class="text-center">Regístro Médico</h2>
          <form>
             <div class="mb-2 mt-4">
-               <label for="exampleInputText1" class="form-label">Nombre</label>
-               <input type="text" class="form-control">
+               <label for="userNameDr" class="form-label">Nombre</label>
+               <input type="text" class="form-control" id="userNameDr">
+            </div>
+            <div class="mb-2 mt-4">
+               <label for="lastNameDr" class="form-label">Apellido</label>
+               <input type="text" class="form-control" id="lastNameDr">
             </div>
             <div class="mb-3">
                <label for="matricula" class="form-label">Matrícula</label>
                <input type="text" class="form-control" id="matricula">
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="emailDr" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="emailDr" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="passDr" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="passDr">
             </div>
             <div class="mb-3">
-               <label for="exampleInputPassword2" class="form-label">Repetir Contraseña</label>
-               <input type="password" class="form-control" id="exampleInputPassword2">
+               <label for="checkPassDr" class="form-label">Repetir Contraseña</label>
+               <input type="password" class="form-control" id="checkPassDr">
             </div>
             <div class="text-center">
-            <button type="submit" class="btn btn-primary">Registrarme</button>
+            <button type="button" class="btn btn-primary" onclick="registerDr()">Registrarme</button>
             </div>
          </form>
          </div>
