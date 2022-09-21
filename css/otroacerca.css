@@ -28,7 +28,7 @@ header{
 }
 /*Mouse encima*/
 .navbar-inverse li a:hover{
-    color: #F0EABE;
+    color: #f60ed3;
 }
 .image{
     max-width: 100%;

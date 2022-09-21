@@ -20,7 +20,7 @@ else {
    }
 
    let userExist = localSTG.filter(local => local.userName === userName)
-   console.log('userExist',userExist)
+   console.log('userExist',userExist);
    
    if (userExist.length === 0){
       if (pass === checkPass){

@@ -25,7 +25,7 @@ header{
 }
 /*Mouse encima*/
 .navbar-inverse li a:hover{
-    color: #F0EABE;
+    color: #f60ed3;
 }
 
 
@@ -35,11 +35,12 @@ header{
     position: absolute;
     top: 50%;
     transform:translateY(-30%);
+    text-shadow: 1px 2px 2px rgb(254, 251, 254);
 }
 .span{
     color: #1505c2;
     font-size: 20px;
-    text-shadow: 1px 1px 0 #fff;
+    text-shadow: 1px 2px 2px rgb(255, 174, 252);
 }
 
 .history{
@@ -57,7 +58,7 @@ header{
 }
 
 .section{
-    background:#F0EABE;
+    background:#47c1c9;
 }
 .section p{
     color: #1505c2;
@@ -68,7 +69,6 @@ header{
 .logo-footer{
     width: 180px;
     padding: 5px;
-    border-radius: 100%;
 }
 .bg-footer{
     background: rgb(2,0,36);
