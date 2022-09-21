@@ -25,7 +25,7 @@ else {
    if (userExist.length === 0){
       if (pass === checkPass){
          array.push({id: localSTG.length + 1,userName,lastName,email,pass,matricula,condition:'inactive'})
-         localStorage.setItem('usuario',JSON.stringify(array))
+         localStorage.setItem('users',JSON.stringify(array))
          console.log(array)
       }else{
          alert('Las contraseñas no coinciden')
