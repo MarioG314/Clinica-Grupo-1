@@ -38,6 +38,8 @@ header{
 }
 .span{
     color: #1505c2;
+    font-size: 20px;
+    text-shadow: 1px 1px 0 #fff;
 }
 
 .history{

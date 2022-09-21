@@ -46,9 +46,47 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item me-4">
-              <a class="nav-link" href="../html/404.html">
-                <dt>Publicidades</dt>
-              </a>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Crear publicidad
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header ">
+                      <h5 class="modal-title  " id="staticBackdropLabel">Nueva publicidad</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      
+         <form>
+            <div class="mb-2 mt-4">
+               <label for="exampleInputText1" class="form-label">Código</label>
+               <input type="tel" class="form-control">
+            </div>
+            <div class="mb-2">
+               <label for="exampleInputText1" class="form-label">Imagen/url</label>
+               <input type="url" class="form-control">
+            </div>
+            <div class="mb-2">
+              <label for="exampleInputEmail1" class="form-label">Categoría</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-2">
+              <label for="exampleInputPassword1" class="form-label">Descripción</label>
+              <input type="text" class="form-control" id="exampleInputPassword1">
+            </div>
+            
+            <div class="text-center">
+            <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+         </form>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="nav-item me-4">
               <a class="nav-link" href="../html/404.html">
@@ -88,40 +126,40 @@
       <!-- begin-tag-users -->
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
         tabindex="0">
-        <div class="container-fluid-sm container-md mt-5 ">
-          <table class="table border text-light  letter-size-table">
+        <div class="container-fluid-sm container-md mt-5 table-responsive ">
+          <table class="table border text-light  letter-size-table ">
             <thead class="table-head">
               <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">Rol</th>
-                <th>Especialidad</th>
-                <th>Matrícula</th>
+                <th class="text-center align-middle px-5 px-lg-0" scope="col">ID </th>
+                <th class="text-center align-middle px-5 px-lg-0"   scope="col"> Usuario </th>
+                <th class="text-center align-middle  px-5 px-lg-0"  scope="col">Rol </th>
+                <th class="text-center  align-middle px-5 px-lg-0"   scope="col">Especialidad </th>
+                <th class="text-center  align-middle px-5 px-lg-0"   scope="col" > Matrícula </th>
 
-                <th class="ps-4" scope="col">Administrar</th>
+                <th class=" text-center align-middle" scope="col">Administrar</th>
               </tr>
             </thead>
             <tbody class="text-dark">
               <tr>
-                <th scope="row">1</th>
-                <td>Marcos</td>
-                <td>Admin</td>
-                <td></td>
-                <td></td>
+                <th class="text-center align-middle" scope="row">1</th>
+                <td class="text-center align-middle">Marcos</td>
+                <td class="text-center align-middle">Admin</td>
+                <td class="text-center align-middle" ></td>
+                <td class="text-center align-middle"></td>
 
-                <td></td>
+                <td class="text-center align-middle"></td>
               </tr>
               <tr>
-                <th scope="row">2</th>
-                <td>Juan</td>
-                <td>Médico</td>
-                <td>Ginecología</td>
-                <td>14587295</td>
+                <th class="text-center align-middle" scope="row">2</th>
+                <td class="text-center align-middle">Juan</td>
+                <td class="text-center align-middle">Médico</td>
+                <td class="text-center align-middle" >Ginecología</td>
+                <td class="text-center align-middle" >14587295</td>
 
-                <td>
+                <td class="d-flex justify-content-center">
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <i class="fa-solid fa-trash-can  admin-icon-table "></i>
+                  <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -145,8 +183,8 @@
                   </div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <i class="fa-solid fa-pen-to-square   admin-icon-table "></i>
+                  <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -171,8 +209,8 @@
 
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                    <i class="fa-solid fa-check  admin-icon-table "></i>
+                  <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <i class="fa-solid  fa-check  admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -205,17 +243,17 @@
                 </td>
               </tr>
               <tr>
-                <th scope="row">3</th>
-                <td>Lucía</td>
-                <td>Paciente</td>
-                <td></td>
-                <td></td>
+                <th  class="text-center align-middle" scope="row">3</th>
+                <td class="text-center align-middle" >Lucía</td>
+                <td class="text-center align-middle">Paciente</td>
+                <td class="text-center align-middle"></td>
+                <td class="text-center align-middle"></td>
 
-                <td>
+                <td class="d-flex justify-content-center">
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <i class="fa-solid fa-trash-can  admin-icon-table "></i>
+                  <button  type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -239,8 +277,8 @@
                   </div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <i class="fa-solid fa-pen-to-square   admin-icon-table "></i>
+                  <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -264,8 +302,8 @@
                   </div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                    <i class="fa-solid fa-check  admin-icon-table "></i>
+                  <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <i class="fa-solid  fa-check  admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -303,30 +341,47 @@
 
       <!-- begin-tag-publicity -->
       <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-        <div class="container mt-5">
+        <div class="container mt-5 table-responsive">
           <table class="table border text-light letter-size-table ">
             <thead class="table-head">
               <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Publicidad</th>
-                <th scope="col">Categoría</th>
+                <th class="text-center align-middle  px-5 px-lg-0" scope="col">Código</th>
+                <th class="text-center align-middle   px-5 px-lg-0" scope="col">Publicidad</th>
+                <th class="text-center align-middle  px-5 px-lg-0 " scope="col">Categoría</th>
 
-                <th scope="col">Descripción</th>
-                <th class="ps-4" scope="col">Administrar</th>
+                <th class="text-center align-middle  px-5 px-lg-0" scope="col">Descripción</th>
+                <th class=" text-center align-middle  " scope="col">Administrar</th>
               </tr>
             </thead>
             <tbody class="text-dark">
               <tr>
-                <th scope="row">385</th>
-                <td> <img src="" alt="">  Publicidad 1</td>
-                <td>Cardiología</td>
+                <th class="text-center align-middle " scope="row">385</th>
+                <td class="text-center align-middle" > <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop10">
+                  <img class="img-publicity" src="/img/publicidad1.png" alt="publicity-1">
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop10" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content modal-content-img-publicity">
+                        
+                        <div class="modal-body d-flex justify-content-end ">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div></td>
+                <td class="text-center align-middle">Cardiología</td>
 
-                <td></td>
-                <td >
+                <td class="text-center align-middle" ></td>
+                <td class="text-center align-middle">
+                  <div class="d-flex justify-content-center ">
 
        <!-- Button trigger modal -->
-       <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-        <i class="fa-solid fa-trash-can  admin-icon-table "></i>
+       <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        <i class=" fa-solid  fa-trash-can  admin-icon-table "></i>
       </button>
 
       <!-- Modal -->
@@ -350,8 +405,8 @@
       </div>
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-        <i class="fa-solid fa-pen-to-square   admin-icon-table "></i>
+      <button type="button" class="btn-table-modal-width btn btn-light me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+        <i class=" fa-solid  fa-pen-to-square   admin-icon-table "></i>
       </button>
 
       <!-- Modal -->
@@ -376,8 +431,8 @@
 
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-        <i class="fa-solid fa-star  admin-icon-table  text-warning"></i>
+      <button type="button" class="btn btn-light btn-table-modal-width " data-bs-toggle="modal" data-bs-target="#exampleModal3">
+        <i class="fa-solid  fa-star  admin-icon-table  text-warning"></i>
       </button>
 
       <!-- Modal -->
@@ -403,23 +458,42 @@
           </div>
         </div>
       </div>
-
+</div>
 
 
                 </td>
               </tr>
               <tr>
-                <th scope="row">386</th>
-                <td><img src="" alt="">  Publicidad 2</td>
-                <td>Pediatría</td>
+                <th class="text-center align-middle" scope="row">386</th>
+                <td class="text-center align-middle">  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop11">
+                <img class="img-publicity" src="/img/publicidad2.jpg" alt="publicity-2">
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop11" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal-content-img-publicity-2">
+                      
+                      <div class="modal-body d-flex justify-content-end ">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              
+              </td>
+                <td class="text-center align-middle">Pediatría</td>
 
-                <td>
+                <td class="text-center align-middle">
 
                 </td>
-                <td>
+                <td class="text-center align-middle">
+                  <div class="d-flex justify-content-center ">
        <!-- Button trigger modal -->
-       <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
-        <i class="fa-solid fa-trash-can  admin-icon-table "></i>
+       <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+        <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
       </button>
 
       <!-- Modal -->
@@ -443,8 +517,8 @@
       </div>
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
-        <i class="fa-solid fa-pen-to-square   admin-icon-table "></i>
+      <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
+        <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
       </button>
 
       <!-- Modal -->
@@ -469,8 +543,8 @@
 
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal6">
-        <i class="fa-solid fa-star  admin-icon-table  "></i>
+      <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+        <i class="fa-solid  fa-star  admin-icon-table  "></i>
       </button>
 
       <!-- Modal -->
@@ -496,23 +570,41 @@
           </div>
         </div>
       </div>
+      </div>
 
 
                   
                 </td>
               </tr>
               <tr>
-                <th scope="row">387</th>
-                <td><img src="" alt="">  Publicidad 3</td>
-                <td>Ginecología</td>
+                <th class="text-center align-middle" scope="row">387</th>
+                <td class="text-center align-middle"> <button type="button" class="btn  btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop12">
+                  <img class="img-publicity" src="/img/publicidad3.jpg" alt="publicity-3">
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop12" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content modal-content-img-publicity-3">
+                        
+                        <div class="modal-body d-flex justify-content-end ">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div></td>
+                <td class="text-center align-middle">Ginecología</td>
 
-                <td>
+                <td class="text-center align-middle" >
 
                 </td>
-                <td>
+                <td class="text-center align-middle">
+                  <div class="d-flex justify-content-center ">
                    <!-- Button trigger modal -->
-                   <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop7">
-                    <i class="fa-solid fa-trash-can  admin-icon-table "></i>
+                   <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop7">
+                    <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -536,8 +628,8 @@
                   </div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop8">
-                    <i class="fa-solid fa-pen-to-square   admin-icon-table "></i>
+                  <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop8">
+                    <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
@@ -562,8 +654,8 @@
 
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal9">
-                    <i class="fa-solid fa-star  admin-icon-table  "></i>
+                  <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                    <i class="fa-solid  fa-star  admin-icon-table  "></i>
                   </button>
 
                   <!-- Modal -->
@@ -592,7 +684,7 @@
 
 
                    
-                  
+                </div>
 
               
 
@@ -617,12 +709,12 @@
 
         <div class="col-12 col-sm-5 col-md-4 col-lg-4 m-2 ">
           <p class="fs-6 fw-bold">Información </p>
-          <i class="fa-solid fa-phone"> </i><span> 003-521422</span><br>
-          <i class="fa-solid fa-location-dot"> </i><a
+          <i class="fa-solid  fa-phone"> </i><span> 003-521422</span><br>
+          <i class="fa-solid  fa-location-dot"> </i><a
             href="https://www.google.com.ar/maps/place/RollingCode+School/@-26.8366961,-65.2093905,17z/data=!3m1!4b1!4m5!3m4!1s0x94225d3ad7f30f1d:0xf8606cd659b8e3e4!8m2!3d-26.8367009!4d-65.2072018"
             class="text-decoration-none text-white"> Gral. Paz 576, Tucumán</a><br>
-          <i class="fa-solid fa-bus-simple"></i> <span>Linea: 25, 32, 15</span><br>
-          <i class="fa-solid fa-envelope"></i> <a href="404.html" class="text-decoration-none text-white">
+          <i class="fa-solid  fa-bus-simple"></i> <span>Linea: 25, 32, 15</span><br>
+          <i class="fa-solid  fa-envelope"></i> <a href="404.html" class="text-decoration-none text-white">
             rollingclinic@gmail.com</a>
         </div>
         <div class="col-12 col-sm-5 col-md-5 col-lg-4 m-2">
