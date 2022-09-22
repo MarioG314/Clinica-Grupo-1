@@ -133,15 +133,17 @@
               <tr>
                 <th class="text-center align-middle px-5 px-lg-0" scope="col">ID </th>
                 <th class="text-center align-middle px-5 px-lg-0"   scope="col"> Usuario </th>
-                <th class="text-center align-middle  px-5 px-lg-0"  scope="col">Rol </th>
-                <th class="text-center  align-middle px-5 px-lg-0"   scope="col">Especialidad </th>
+                <th class="text-center align-middle  px-5 px-lg-0"  scope="col">Apellido </th>
+                <th class="text-center  align-middle px-5 px-lg-0"   scope="col">Rol </th>
                 <th class="text-center  align-middle px-5 px-lg-0"   scope="col" > Matrícula </th>
 
                 <th class=" text-center align-middle" scope="col">Administrar</th>
               </tr>
             </thead>
-            <tbody class="text-dark">
-              <tr>
+            <tbody id="table-admin-body" class="text-dark">
+
+              
+              <!-- <tr>
                 <th class="text-center align-middle" scope="row">1</th>
                 <td class="text-center align-middle">Marcos</td>
                 <td class="text-center align-middle">Admin</td>
@@ -149,8 +151,8 @@
                 <td class="text-center align-middle"></td>
 
                 <td class="text-center align-middle"></td>
-              </tr>
-              <tr>
+              </tr> -->
+              <!-- <tr>
                 <th class="text-center align-middle" scope="row">2</th>
                 <td class="text-center align-middle">Juan</td>
                 <td class="text-center align-middle">Médico</td>
@@ -158,12 +160,12 @@
                 <td class="text-center align-middle" >14587295</td>
 
                 <td class="d-flex justify-content-center">
-                  <!-- Button trigger modal -->
+                  
                   <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
                   </button>
 
-                  <!-- Modal -->
+                 
                   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -183,12 +185,12 @@
                     </div>
                   </div>
 
-                  <!-- Button trigger modal -->
+                  
                   <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
                   </button>
 
-                  <!-- Modal -->
+                 
                   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -209,12 +211,12 @@
                   </div>
 
 
-                  <!-- Button trigger modal -->
+                  
                   <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                     <i class="fa-solid  fa-check  admin-icon-table "></i>
                   </button>
 
-                  <!-- Modal -->
+                  
                   <div class="modal fade   " id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog ">
@@ -252,12 +254,12 @@
 
                 <td class="d-flex justify-content-center">
 
-                  <!-- Button trigger modal -->
+                 
                   <button  type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
                   </button>
 
-                  <!-- Modal -->
+               
                   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -277,12 +279,12 @@
                     </div>
                   </div>
 
-                  <!-- Button trigger modal -->
+                 
                   <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
                   </button>
 
-                  <!-- Modal -->
+                 
                   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -302,12 +304,11 @@
                     </div>
                   </div>
 
-                  <!-- Button trigger modal -->
+                 
                   <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                     <i class="fa-solid  fa-check  admin-icon-table "></i>
                   </button>
 
-                  <!-- Modal -->
                   <div class="modal fade   " id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog ">
@@ -332,8 +333,9 @@
                   </div>
 
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
+            <tbody id="table-users-body"></tbody>
           </table>
 
         </div>
@@ -752,6 +754,8 @@
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
   <script src="../js/publicity.js"></script>
+
+  <script src="../js/admin.js"></script>
 </body>
 
 </html>
