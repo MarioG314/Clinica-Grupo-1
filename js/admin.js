@@ -1,8 +1,3 @@
-// (() => {
-//   localSGTCheckbuttomGet = JSON.parse(localStorage.getItem(checkID))
-//   localSGTCheckbuttomFilter= localSGTCheckbuttomGet.filter(checkID => );
-// })();
-
 let localSTG = JSON.parse(localStorage.getItem("users"));
 let localSTGAdmin = JSON.parse(localStorage.getItem("admin"));
 
@@ -132,9 +127,16 @@ const enableUser = (checkModalId) => {
     deleteCheckButtom.style.display = "none";
     deleteCheckButtomModal.style.display = "none";
   }, 300);
-
-  localSGTCheckbuttomSet = localStorage.setItem(
-    "checkID",
-    JSON.stringify({ checkModalId })
-  );
 };
+(() => {
+  const usersActive = localSTG.filter((users) => users.condition === "active");
+  usersActive.forEach((active) => {
+    let deleteCheckButtom = document.getElementById(`checkbuttom${active.id}`);
+    let deleteCheckButtomModal = document.getElementById(
+      `exampleModal${active.id}`
+    );
+
+    deleteCheckButtom.style.display = "none";
+    deleteCheckButtomModal.style.display = "none";
+  });
+})();
