@@ -1,84 +1,59 @@
-
-.modal-backdrop{position:unset }
-
-
-
-.table-head{
-    background-color: #4993FA ;
-
-
-
+.modal-backdrop {
+  position: unset;
 }
 
-.btn-table-modal-width{max-width: 33.33%; 
-
+.table-head {
+  background-color: #4993fa;
 }
 
-
-
-
-
-
-
-
-
-
+.btn-table-modal-width {
+  max-width: 50%;
+}
 
 .img-publicity {
+  width: 6rem;
 
-    width: 6rem;
-
-    height: 4rem;
-
-
-
+  height: 4rem;
 }
 
-.modal-content-img-publicity{
-
-    background-image: url(/img/publicidad1.png);
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-width: 36rem ;
-height: 24rem ;
-
+.modal-content-img-publicity {
+  background-image: url(/img/publicidad1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 36rem;
+  height: 24rem;
 }
 
-.modal-content-img-publicity-2{
-
-    background-image: url(/img/publicidad2.jpg);
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-width: 36rem ;
-height: 24rem ;
-
+.modal-content-img-publicity-2 {
+  background-image: url(/img/publicidad2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 36rem;
+  height: 24rem;
 }
 
-
-
-.modal-content-img-publicity-3{
-
-    background-image: url(/img/publicidad3.jpg);
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-width: 36rem ;
-height: 24rem ;
-
+.modal-content-img-publicity-3 {
+  background-image: url(/img/publicidad3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 36rem;
+  height: 24rem;
 }
 
+@media (max-width: 768px) {
+  .letter-size-table {
+    font-size: 0.7rem;
+  }
+  .admin-icon-table {
+    font-size: 1rem;
+  }
+}
 
-@media (max-width: 768px) { 
-.letter-size-table{font-size: 0.7rem ;}
-.admin-icon-table{font-size: 1rem;}
-
-
-
- }
-
- @media (min-width: 768px) { 
-    
-    .admin-icon-table{font-size: 1.5rem;}
-    }
+@media (min-width: 768px) {
+  .admin-icon-table {
+    font-size: 1.5rem;
+  }
+}
