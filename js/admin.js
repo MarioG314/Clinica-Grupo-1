@@ -1,3 +1,8 @@
+// (() => {
+//   localSGTCheckbuttomGet = JSON.parse(localStorage.getItem(checkID))
+//   localSGTCheckbuttomFilter= localSGTCheckbuttomGet.filter(checkID => );
+// })();
+
 let localSTG = JSON.parse(localStorage.getItem("users"));
 let localSTGAdmin = JSON.parse(localStorage.getItem("admin"));
 
@@ -15,13 +20,13 @@ tableAdminBody.innerHTML = `  <tr>
               </tr>`;
 
 tableUsersBody.innerHTML = localSTG.map(
-  (usuarios) =>
+  (users) =>
     ` <tr>
-                <th class="text-center text-dark align-middle" scope="row">${usuarios.id}</th>
-                <td class="text-center text-dark align-middle">${usuarios.userName}</td>
-                <td class="text-center text-dark align-middle">${usuarios.lastName}</td>
-                <td class="text-center text-dark align-middle" >${usuarios.role}</td>
-                <td class="text-center text-dark align-middle" >${usuarios.matricula}</td>
+                <th class="text-center text-dark align-middle" scope="row">${users.id}</th>
+                <td class="text-center text-dark align-middle">${users.userName}</td>
+                <td class="text-center text-dark align-middle">${users.lastName}</td>
+                <td class="text-center text-dark align-middle" >${users.role}</td>
+                <td class="text-center text-dark align-middle" >${users.matricula}</td>
 
                 <td class="d-flex justify-content-center">
                   <!-- Button trigger modal -->
@@ -75,12 +80,12 @@ tableUsersBody.innerHTML = localSTG.map(
                   </div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                  <button type="  button" id= "checkbuttom${users.id}"  class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal${users.id}">
                     <i class="fa-solid  fa-check  admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
-                  <div class="modal fade   " id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  <div class="modal fade   " id="exampleModal${users.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog ">
                       <div class="modal-content">
@@ -91,13 +96,13 @@ tableUsersBody.innerHTML = localSTG.map(
 
                         <div class="modal-body d-flex justify-content-center admin-modal-body">
 
-                          <p class="fs-5 mt-4  "> Desea habilitar al usuario</p>
+                          <p class="fs-5 mt-4 text-dark "> Desea habilitar al usuario</p>
 
                         </div>
 
                         <div class="modal-footer d-flex justify-content-center admin-modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rechazar</button>
-                          <button type="button" class="btn btn-primary">Habilitar</button>
+                          <button type="button" class="btn btn-primary"  onclick="enableUser(${users.id})">Habilitar</button>
                         </div>
                       </div>
                     </div>
@@ -106,3 +111,30 @@ tableUsersBody.innerHTML = localSTG.map(
                 </td>
               </tr>`
 );
+
+const enableUser = (checkModalId) => {
+  setTimeout(function () {
+    const userEnable = localSTG.filter((users) => users.id === checkModalId);
+
+    userEnable[0].condition = "active";
+    let activeLocalSGT = localStorage.setItem(
+      "users",
+      JSON.stringify(localSTG)
+    );
+
+    let deleteCheckButtom = document.getElementById(
+      `checkbuttom${checkModalId}`
+    );
+    let deleteCheckButtomModal = document.getElementById(
+      `exampleModal${checkModalId}`
+    );
+
+    deleteCheckButtom.style.display = "none";
+    deleteCheckButtomModal.style.display = "none";
+  }, 300);
+
+  localSGTCheckbuttomSet = localStorage.setItem(
+    "checkID",
+    JSON.stringify({ checkModalId })
+  );
+};
