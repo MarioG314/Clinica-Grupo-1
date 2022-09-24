@@ -6,7 +6,8 @@ let tableAdminBody = document.getElementById("table-admin-body");
 let tableUsersBody = document.getElementById("table-users-body");
 let tablePublicitysBody = document.getElementById("table-publicitys-body");
 
-tableAdminBody.innerHTML = `  <tr>
+const RenderAdminFrancisco = () => {
+  tableAdminBody.innerHTML = `  <tr>
                 <th class="text-center align-middle" scope="row">${localSTGAdmin.id}</th>
                 <td class="text-center align-middle">${localSTGAdmin.userName}</td>
                 <td class="text-center align-middle">${localSTGAdmin.lastName}</td>
@@ -15,8 +16,9 @@ tableAdminBody.innerHTML = `  <tr>
 
                 <td class="text-center align-middle"></td>
               </tr>`;
+};
 
-RenderAdminUsers = () => {
+const RenderAdminUsers = () => {
   tableUsersBody.innerHTML = localSTG.map(
     (users) =>
       ` <tr>
@@ -76,7 +78,7 @@ RenderAdminUsers = () => {
                <label for="lastNameChange${users.id}" class="form-label">Apellido</label>
                <input type="text" class="form-control" id="lastNameChange${users.id}" value = ${users.lastName}>
             </div>
-            <div class="mb-2">
+            <div class="mb-2" id="inputMatricula${users.id}">
                <label for="matriculaChange${users.id}" class="form-label">Matrícula</label>
                <input type="text" class="form-control" id="matriculaChange${users.id}" value = ${users.matricula}>
             </div>
@@ -136,8 +138,9 @@ const usersActive = () => {
       `exampleModal${active.id}`
     );
 
-tablePublicitysBody.innerHTML= localSTGPublicity.map(publicidad =>
-  `
+    tablePublicitysBody.innerHTML = localSTGPublicity.map(
+      (publicidad) =>
+        `
   <tr>
   <th class="text-center align-middle " scope="row">385</th>
   <td class="text-center align-middle" > 
@@ -246,27 +249,26 @@ data-bs-target="#exampleModal3${publicidad.id}">
 </div>
 </td>
 </tr>
-  `)
+  `
+    );
 
-
-function destacarPublicidad(id){
-  console.log(id)
-  let publicidades= JSON.parse(localStorage.getItem("publicity")) || []
-  const arrayPublicidad=[]
-    for (let i = 0; i < publicidades.length; i++) {
-      const publicidad = publicidades[i];
-      if(publicidad.id===id){
-        publicidad.destacado=true
-        arrayPublicidad.push(publicidad)
-        console.log(publicidad)
-      }else{
-        arrayPublicidad.push(publicidad)
+    function destacarPublicidad(id) {
+      console.log(id);
+      let publicidades = JSON.parse(localStorage.getItem("publicity")) || [];
+      const arrayPublicidad = [];
+      for (let i = 0; i < publicidades.length; i++) {
+        const publicidad = publicidades[i];
+        if (publicidad.id === id) {
+          publicidad.destacado = true;
+          arrayPublicidad.push(publicidad);
+          console.log(publicidad);
+        } else {
+          arrayPublicidad.push(publicidad);
+        }
       }
+      localStorage.setItem("publicity", JSON.stringify(arrayPublicidad));
+      console.log("arrayPublicidad", arrayPublicidad);
     }
-    localStorage.setItem("publicity", JSON.stringify(arrayPublicidad))
-    console.log("arrayPublicidad", arrayPublicidad)
-  } 
-
 
     deleteCheckButtom.style.display = "none";
     deleteCheckButtomModal.style.display = "none";
@@ -288,35 +290,51 @@ const enableUser = (checkModalId) => {
     let deleteCheckButtomModal = document.getElementById(
       `exampleModal${checkModalId}`
     );
-
-    deleteCheckButtom.style.display = "none";
-    deleteCheckButtomModal.style.display = "none";
+    location.href = "../html/admin.html";
   }, 300);
 };
 
 const changeAdmin = (changeAdminId) => {
-  let nameChange = document.getElementById(
-    `userNameChange${changeAdminId}`
-  ).value;
+  setTimeout(function () {
+    let nameChange = document.getElementById(
+      `userNameChange${changeAdminId}`
+    ).value;
 
-  let matriculaChange = document.getElementById(
-    `matriculaChange${changeAdminId}`
-  ).value;
-  let lastNameChange = document.getElementById(
-    `lastNameChange${changeAdminId}`
-  ).value;
-  let roleChange = document.getElementById(`rolChange${changeAdminId}`).value;
+    let matriculaChange = document.getElementById(
+      `matriculaChange${changeAdminId}`
+    ).value;
+    let lastNameChange = document.getElementById(
+      `lastNameChange${changeAdminId}`
+    ).value;
+    let roleChange = document.getElementById(`rolChange${changeAdminId}`).value;
 
-  const adminChange = localSTG.filter((users) => users.id === changeAdminId);
+    const adminChange = localSTG.filter((users) => users.id === changeAdminId);
 
-  adminChange[0].userName = nameChange;
-  adminChange[0].lastName = lastNameChange;
-  adminChange[0].matricula = matriculaChange;
-  adminChange[0].role = roleChange;
+    adminChange[0].userName = nameChange;
+    adminChange[0].lastName = lastNameChange;
+    adminChange[0].matricula = matriculaChange;
+    adminChange[0].role = roleChange;
 
-  let changeLocalSGT = localStorage.setItem("users", JSON.stringify(localSTG));
-  location.href = "../html/admin.html";
+    let changeLocalSGT = localStorage.setItem(
+      "users",
+      JSON.stringify(localSTG)
+    );
+    location.href = "../html/admin.html";
+  }, 300);
 };
 
+const matriculaPatientDelete = () => {
+  let modalChangeUsers = localSTG.filter((users) => users.role === "Paciente");
+  modalChangeUsers.forEach((matricula) => {
+    let deleteMatriculaInput = document.getElementById(
+      `inputMatricula${matricula.id}`
+    );
+
+    deleteMatriculaInput.style.display = "none";
+  });
+};
+
+RenderAdminFrancisco();
 RenderAdminUsers();
 usersActive();
+matriculaPatientDelete();

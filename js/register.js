@@ -89,7 +89,7 @@ function registerDr() {
           email,
           pass,
           matricula,
-          role: "Medico",
+          role: "Doctor",
           condition: "inactive",
         });
         localStorage.setItem("users", JSON.stringify(array));
