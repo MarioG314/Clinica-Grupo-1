@@ -343,7 +343,7 @@
       <!-- end-tag-users -->
 
       <!-- begin-tag-publicity -->
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0"> 
         <div class="container mt-5 table-responsive">
           <table class="table border text-light letter-size-table ">
             <thead class="table-head">
@@ -351,21 +351,21 @@
                 <th class="text-center align-middle  px-5 px-lg-0" scope="col">Código</th>
                 <th class="text-center align-middle   px-5 px-lg-0" scope="col">Publicidad</th>
                 <th class="text-center align-middle  px-5 px-lg-0 " scope="col">Categoría</th>
-
                 <th class="text-center align-middle  px-5 px-lg-0" scope="col">Descripción</th>
                 <th class=" text-center align-middle  " scope="col">Administrar</th>
               </tr>
             </thead>
-            <tbody class="text-dark">
-              <div>
-              <tr>
+            <tbody id="table-publicitys-body" class="text-dark">
+              <!-- <div id="">
+              <tr> inicio primera fila
                 <th class="text-center align-middle " scope="row">385</th>
-                <td class="text-center align-middle" > <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop10">
+                <td class="text-center align-middle" > 
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop10">
                   <img class="img-publicity" src="/img/publicidad1.png" alt="publicity-1">
-                  </button>
+                  </button> -->
                   
                   <!-- Modal -->
-                  <div class="modal fade" id="staticBackdrop10" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <!-- <div class="modal fade" id="staticBackdrop10" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content modal-content-img-publicity">
                         
@@ -376,20 +376,21 @@
                        
                       </div>
                     </div>
-                  </div></td>
+                  </div>
+                </td>
                 <td class="text-center align-middle">Cardiología</td>
+                <td class="text-center align-middle" ></td> -->
 
-                <td class="text-center align-middle" ></td>
-                <td class="text-center align-middle">
-                  <div class="d-flex justify-content-center ">
-
+                <!-- comienzo de los 3 botones-->
+                <!-- <td class="text-center align-middle">
+                  <div class="d-flex justify-content-center "> -->
        <!-- Button trigger modal -->
-       <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-        <i id="star" class=" fa-solid  fa-trash-can  admin-icon-table "></i>
-      </button>
+       <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        <i class=" fa-solid  fa-trash-can  admin-icon-table "></i>
+      </button> -->
 
       <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+      <!-- <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -406,15 +407,15 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>fin boton de eliminar -->
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn-table-modal-width btn btn-light me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-        <i id="star" class=" fa-solid  fa-pen-to-square   admin-icon-table "></i>
-      </button>
+      <!-- <button type="button" class="btn-table-modal-width btn btn-light me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+        <i  class=" fa-solid  fa-pen-to-square   admin-icon-table "></i>
+      </button> -->
 
       <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+      <!-- <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -431,47 +432,47 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>fin boton editar -->
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light btn-table-modal-width " data-bs-toggle="modal" data-bs-target="#exampleModal3">
-        <i id="star" class="fa-solid fa-star admin-icon-table text-warning"></i>
-      </button>
-
+      <!-- <button type="button" class="btn btn-light btn-table-modal-width " data-bs-toggle="modal"
+        data-bs-target="#exampleModal3">
+        <i id="" class="fa-solid fa-star admin-icon-table text-warning"></i>
+      </button> -->
+      
       <!-- Modal -->
-      <div class="modal fade   " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+      <!-- <div class="modal fade   " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog ">
           <div class="modal-content">
             <div class="modal-header admin-modal-header">
-
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              </button>
             </div>
-
+      
             <div class="modal-body d-flex justify-content-center admin-modal-body">
-
+      
               <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
-
+      
             </div>
-
-            <div class="modal-footer d-flex justify-content-center admin-modal-footer">
-              <button type="button" id="agree" class="btn btn-secondary" data-bs-dismiss="modal">Sí</button>
-              <button type="button" id="disclaim"  class="btn btn-primary">No</button>
+       -->
+            <!-- <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+              <button type="button" id="agree" class="btn btn-secondary" data-bs-dismiss="modal" onclick="destacarPublicidad()">Sí</button>
+              <button type="button" id="disclaim" class="btn btn-primary">No</button>
             </div>
           </div>
         </div>
       </div>
       </div>
-                </td>
-              </tr> <!-- Fin primera publicidad-->
-              <tr>
+      </td>
+      </tr> Fin primera publicidad -->
+              <!-- <tr>
                 <th class="text-center align-middle" scope="row">386</th>
                 <td class="text-center align-middle">  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop11">
                 <img class="img-publicity" src="/img/publicidad2.jpg" alt="publicity-2">
                 </button>
-                
+                 -->
                 <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop11" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="staticBackdrop11" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content modal-content-img-publicity-2">
                       
@@ -491,14 +492,14 @@
 
                 </td>
                 <td class="text-center align-middle">
-                  <div class="d-flex justify-content-center ">
+                  <div class="d-flex justify-content-center "> -->
        <!-- Button trigger modal -->
-       <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+       <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
         <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
-      </button>
+      </button> -->
 
       <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
+      <!-- <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -515,15 +516,15 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
+      <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
         <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
-      </button>
+      </button> -->
 
       <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
+      <!-- <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -540,16 +541,16 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+      <!-- <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal6">
         <i id="star" class="fa-solid  fa-star  admin-icon-table  "></i>
-      </button>
+      </button> -->
 
       <!-- Modal -->
-      <div class="modal fade   " id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel"
+      <!-- <div class="modal fade   " id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog ">
           <div class="modal-content">
@@ -562,8 +563,8 @@
 
               <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
 
-            </div>
-
+            </div> -->
+<!-- 
             <div class="modal-footer d-flex justify-content-center admin-modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sí</button>
               <button type="button" class="btn btn-primary">No</button>
@@ -576,15 +577,15 @@
 
                   
                 </td>
-              </tr> <!-- comienzo de  tercera publicidad-->
-              <tr>
+              </tr> comienzo de  tercera publicidad -->
+              <!-- <tr>
                 <th class="text-center align-middle" scope="row">387</th>
                 <td class="text-center align-middle"> <button type="button" class="btn  btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop12">
                   <img class="img-publicity" src="/img/publicidad3.jpg" alt="publicity-3">
-                  </button>
+                  </button> -->
                   
                   <!-- Modal -->
-                  <div class="modal fade" id="staticBackdrop12" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <!-- <div class="modal fade" id="staticBackdrop12" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content modal-content-img-publicity-3">
                         
@@ -602,14 +603,14 @@
 
                 </td>
                 <td class="text-center align-middle">
-                  <div class="d-flex justify-content-center ">
+                  <div class="d-flex justify-content-center "> -->
                    <!-- Button trigger modal -->
-                   <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop7">
+                   <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop7">
                     <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
-                  </button>
+                  </button> -->
 
                   <!-- Modal -->
-                  <div class="modal fade" id="staticBackdrop7" data-bs-backdrop="static" data-bs-keyboard="false"
+                  <!-- <div class="modal fade" id="staticBackdrop7" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -626,15 +627,15 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop8">
-                    <i id="star" class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
-                  </button>
+                  <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop8">
+                    <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
+                  </button> -->
 
                   <!-- Modal -->
-                  <div class="modal fade" id="staticBackdrop8" data-bs-backdrop="static" data-bs-keyboard="false"
+                  <!-- <div class="modal fade" id="staticBackdrop8" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -651,17 +652,17 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
             <!-- Fin segunda publicidad-->
 
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                  <!-- <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal9">
                     <i id="star" class="fa-solid fa-star admin-icon-table"></i>
-                  </button>
+                  </button> -->
 
                   <!-- Modal -->
-                  <div class="modal fade   " id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  <!-- <div class="modal fade   " id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog ">
                       <div class="modal-content">
@@ -700,7 +701,7 @@
 
       <!-- end-tag-publicity -->
 
-    </div>
+    </div> 
     <!-- end-tags-content -->
 
   </main>
