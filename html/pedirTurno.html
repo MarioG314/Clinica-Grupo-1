@@ -98,21 +98,29 @@
     </nav>
   </header>
   <main>
-    <div class="bg-light border-bottom py-3">
+    <div class="p-3">
       <div class="container">
-        <div class="input-group">
-          <span class="input-group-text" id="search-text">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-            </svg>
-          </span>
-          <input type="text" id="search" class="form-control" placeholder="Buscar médicos por especialidad" aria-label="Search" aria-describedby="search-text">
+        <div class="row">
+          <div class="col">
+            <div class="card" id="doctor-details">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <form id="formConsulta">
+                <div class="card-body">
+                  <textarea name="query" class="form-control" placeholder="Dejanos tu consulta" rows="10"></textarea>
+                  <input type="hidden" name="doctorId" id="doctorId-input" />
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">
+                    Enviar consulta!
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="py-3">
-      <div class="container">
-        <div id="results" class="row"></div>
       </div>
     </div>
   </main>
@@ -162,6 +170,6 @@
   <script src="../js/data/services.js"></script>
   <script src="../js/data/doctors.js"></script>
 
-  <script src="../js/usuarios.js"></script>
+  <script src="../js/pedirTurno.js"></script>
 </body>
 </html>
