@@ -130,17 +130,9 @@ const RenderAdminUsers = () => {
               </tr>`
   );
 };
-const usersActive = () => {
-  let activeUsers = localSTG.filter((users) => users.condition === "active");
-  activeUsers.forEach((active) => {
-    let deleteCheckButtom = document.getElementById(`checkbuttom${active.id}`);
-    let deleteCheckButtomModal = document.getElementById(
-      `exampleModal${active.id}`
-    );
-
-    tablePublicitysBody.innerHTML = localSTGPublicity.map(
-      (publicidad) =>
-        `
+tablePublicitysBody.innerHTML = localSTGPublicity.map(
+  (publicidad) =>
+    `
   <tr>
   <th class="text-center align-middle " scope="row">385</th>
   <td class="text-center align-middle" > 
@@ -250,25 +242,33 @@ data-bs-target="#exampleModal3${publicidad.id}">
 </td>
 </tr>
   `
-    );
+);
 
-    function destacarPublicidad(id) {
-      console.log(id);
-      let publicidades = JSON.parse(localStorage.getItem("publicity")) || [];
-      const arrayPublicidad = [];
-      for (let i = 0; i < publicidades.length; i++) {
-        const publicidad = publicidades[i];
-        if (publicidad.id === id) {
-          publicidad.destacado = true;
-          arrayPublicidad.push(publicidad);
-          console.log(publicidad);
-        } else {
-          arrayPublicidad.push(publicidad);
-        }
-      }
-      localStorage.setItem("publicity", JSON.stringify(arrayPublicidad));
-      console.log("arrayPublicidad", arrayPublicidad);
+function destacarPublicidad(id) {
+  console.log(id);
+  let publicidades = JSON.parse(localStorage.getItem("publicity")) || [];
+  const arrayPublicidad = [];
+  for (let i = 0; i < publicidades.length; i++) {
+    const publicidad = publicidades[i];
+    if (publicidad.id === id) {
+      publicidad.destacado = true;
+      arrayPublicidad.push(publicidad);
+      console.log(publicidad);
+    } else {
+      arrayPublicidad.push(publicidad);
     }
+  }
+  localStorage.setItem("publicity", JSON.stringify(arrayPublicidad));
+  console.log("arrayPublicidad", arrayPublicidad);
+}
+
+const usersActive = () => {
+  let activeUsers = localSTG.filter((users) => users.condition === "active");
+  activeUsers.forEach((active) => {
+    let deleteCheckButtom = document.getElementById(`checkbuttom${active.id}`);
+    let deleteCheckButtomModal = document.getElementById(
+      `exampleModal${active.id}`
+    );
 
     deleteCheckButtom.style.display = "none";
     deleteCheckButtomModal.style.display = "none";
