@@ -1,27 +1,31 @@
 function log() {
   let email = document.getElementById("email").value;
   let pass = document.getElementById("pass").value;
-  let localSTG = JSON.parse(localStorage.getItem("users")) || [];
-  let userExist = localSTG.filter((local) => local.email === email);
+  let usersSTG = JSON.parse(localStorage.getItem("users")) || [];
+  let adminSTG = JSON.parse(localStorage.getItem("admin"));
 
-  if (userExist.length > 0) {
-    if (userExist[0].pass === pass) {
-      localStorage.setItem("id", JSON.stringify(userExist[0].id));
-      setTimeout(() => {
-        switch (userExist[0].role) {
-          case "Admin":
-            location.href = "../html/admin.html";
-            break;
-          case "Paciente":
-            location.href = "../html/usuarios.html";
-            break;
-          case "Doctor":
-            location.href = "../html/paediatrician.html";
-            break;
-          default:
-            location.href = "../html/login.html";
-        }
-      }, 2000);
-    }
+  usersSTG.push(adminSTG);
+  console.log(usersSTG);
+  let userLoged = usersSTG.find(
+    (user) => user.email === email && user.pass === pass
+  );
+
+  if (userLoged) {
+    localStorage.setItem("userId", JSON.stringify(userLoged.id));
+    setTimeout(() => {
+      switch (userLoged.role) {
+        case "Admin":
+          location.href = "../html/admin.html";
+          break;
+        case "Paciente":
+          location.href = "../html/usuarios.html";
+          break;
+        case "Doctor":
+          location.href = "../html/paediatrician.html";
+          break;
+        default:
+          location.href = "../html/login.html";
+      }
+    }, 2000);
   }
 }
