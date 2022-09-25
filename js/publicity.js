@@ -2,6 +2,67 @@
 let localSTGPublicity = JSON.parse(localStorage.getItem("publicity"));
 let tablePublicitysBody = document.getElementById("table-publicitys-body");
 
+// Inputs de formulario CREAR publicidad
+let codigoInput = document.getElementById("exampleInputCode1");
+let urlInput = document.getElementById("exampleInputUrl1");
+let categoriaInput = document.getElementById("exampleInputCategoria1");
+let descripcionInput = document.getElementById("exampleInputDescripcion1");
+
+let botonCrear = document.getElementById("staticBackdrop");
+let modalCrearPublicidad = document.querySelector("#staticBackdrop");
+// Crear Nueva Publicidad
+let publicityArray = [];
+
+
+// Eventos crear publicidad
+
+botonCrear.addEventListener("submit", crearPublicidad)
+
+
+cargarEventListeners();
+function cargarEventListeners(e){
+    codigoInput.addEventListener('change', datosPublicidad);
+    urlInput.addEventListener('change', datosPublicidad);
+    categoriaInput.addEventListener('change', datosPublicidad);
+    descripcionInput.addEventListener('change', datosPublicidad);
+
+
+
+}
+
+const newObject = {
+    id: '',
+    url: '',
+    categoria: '',
+    descripcion: ''
+    
+}
+
+function datosPublicidad(e){
+    newObject[e.target.name] = e.target.value;
+    // console.log(newObject);
+}
+
+function crearPublicidad(){
+    console.log(newObject);
+
+}
+function crearPublicidades(objeto){
+    //Desestructuracion
+    const{ codigoInput, urlInput, categoriaInput, descripcionInput } = objeto; 
+    
+    // Validacion
+if( codigoInput === '' || urlInput === '', categoriaInput === '', descripcionInput === '' ){
+    console.log('Todos los campos deben ser completados');
+} else {
+    console.log('Categoria creada exitosamente');
+}
+
+publicityArray = [...publicityArray, newObject];
+console.log(publicityArray);
+
+    // objeto.forEach(publicidad => publicityArray.push(publicidad))
+}
 
 let publicitys = [
     {
