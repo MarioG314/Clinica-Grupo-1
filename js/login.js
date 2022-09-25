@@ -7,7 +7,8 @@ function log() {
   usersSTG.push(adminSTG);
   console.log(usersSTG);
   let userLoged = usersSTG.find(
-    (user) => user.email === email && user.pass === pass
+    (user) =>
+      user.email === email && user.pass === pass && user.condition === "active"
   );
 
   if (userLoged) {
