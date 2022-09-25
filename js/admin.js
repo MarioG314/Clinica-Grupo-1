@@ -30,7 +30,7 @@ const RenderAdminUsers = () => {
 
                 <td class="d-flex justify-content-center">
                 
-      <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdropdelete${users.id}">
+      <button id="iconTrash${users.id}" type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdropdelete${users.id}">
                     <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
                   </button> -->
 
@@ -55,7 +55,7 @@ const RenderAdminUsers = () => {
                   </div> 
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdropmodify${users.id}">
+                  <button id="iconModify${users.id}" type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdropmodify${users.id}">
                     <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
                   </button>
 
@@ -371,8 +371,25 @@ const otherInputSelector = () => {
     }
   });
 };
+const inactiveIconsDelete = () => {
+  let inactiveIconsDelete = localSTG.filter(
+    (users) => users.condition === "inactive"
+  );
+  inactiveIconsDelete.forEach((inactiveUsers) => {
+    let deleteIconModify = document.getElementById(
+      `iconModify${inactiveUsers.id}`
+    );
+    let deleteIconTrash = document.getElementById(
+      `iconTrash${inactiveUsers.id}`
+    );
+
+    deleteIconModify.style.display = "none";
+    deleteIconTrash.style.display = "none";
+  });
+};
 RenderAdminFrancisco();
 RenderAdminUsers();
 usersActiveDeleteIconCheck();
 matriculaPatientDelete();
+inactiveIconsDelete();
 otherInputSelector();
