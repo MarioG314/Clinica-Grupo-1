@@ -82,9 +82,14 @@ const RenderAdminUsers = () => {
                <label for="matriculaChange${users.id}" class="form-label">Matrícula</label>
                <input type="text" class="form-control" id="matriculaChange${users.id}" value = ${users.matricula}>
             </div>
-            <div class="mb-2">
-              <label for="rolChange${users.id}" class="form-label">Rol</label>
-              <input type="text" class="form-control" id="rolChange${users.id}" aria-describedby="rolChange"value= ${users.role}>
+            
+                   <div class="mb-2">
+              <h5 class="fs-6">Rol</h5>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example " value=${users.role} id="rolChange${users.id}">
+  <option value="${users.role} " class="fs-6">${users.role}</option>
+  <option id="otherInputSelector${users.id}" class="fs-6"></option>
+  
+</select>
             </div>
            
             <div class="text-center">
@@ -130,6 +135,7 @@ const RenderAdminUsers = () => {
               </tr>`
   );
 };
+
 tablePublicitysBody.innerHTML = localSTGPublicity.map(
   (publicidad) =>
     `
@@ -351,7 +357,22 @@ const deleteUser = (userId) => {
   location.href = "../html/admin.html";
 };
 
+const otherInputSelector = () => {
+  localSTG.forEach((element) => {
+    let otherInputSelector = document.getElementById(
+      `otherInputSelector${element.id}`
+    );
+    if (element.role === "Paciente") {
+      otherInputSelector.innerHTML = `Doctor`;
+      otherInputSelector.value = `Doctor`;
+    } else {
+      otherInputSelector.innerHTML = `Paciente`;
+      otherInputSelector.value = `Paciente`;
+    }
+  });
+};
 RenderAdminFrancisco();
 RenderAdminUsers();
 usersActiveDeleteIconCheck();
 matriculaPatientDelete();
+otherInputSelector();
