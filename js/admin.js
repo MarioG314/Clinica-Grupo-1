@@ -29,38 +29,38 @@ const RenderAdminUsers = () => {
                 <td class="text-center text-dark align-middle" >${users.matricula}</td>
 
                 <td class="d-flex justify-content-center">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                
+      <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdropdelete${users.id}">
                     <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
-                  </button>
+                  </button> -->
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                  
+                 <div class="modal fade" id="staticBackdropdelete${users.id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                          ...
+                        <div class="modal-body text-center fs-5 text-dark">
+                         Desea eliminar a este usuario
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Understood</button>
+                        <div class="modal-footer d-flex justify-content-center">
+                          
+                          <button type="button" class="btn btn-danger" onclick="deleteUser(${users.id})">Eliminar</button>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> 
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop${users.id}">
+                  <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdropmodify${users.id}">
                     <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
                   </button>
 
                   <!-- Modal -->
-                  <div class="modal fade  text-dark" id="staticBackdrop${users.id}" data-bs-backdrop="static" data-bs-keyboard="false"
+                  <div class="modal fade  text-dark" id="staticBackdropmodify${users.id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -119,7 +119,7 @@ const RenderAdminUsers = () => {
                         </div>
 
                         <div class="modal-footer d-flex justify-content-center admin-modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rechazar</button>
+                          <button type="button" class="btn btn-secondary" onclick="deleteUser(${users.id})" data-bs-dismiss="modal">Rechazar</button>
                           <button type="button" class="btn btn-primary"  onclick="enableUser(${users.id})">Habilitar</button>
                         </div>
                       </div>
@@ -262,7 +262,7 @@ function destacarPublicidad(id) {
   console.log("arrayPublicidad", arrayPublicidad);
 }
 
-const usersActive = () => {
+const usersActiveDeleteIconCheck = () => {
   let activeUsers = localSTG.filter((users) => users.condition === "active");
   activeUsers.forEach((active) => {
     let deleteCheckButtom = document.getElementById(`checkbuttom${active.id}`);
@@ -334,7 +334,24 @@ const matriculaPatientDelete = () => {
   });
 };
 
+const deleteUser = (userId) => {
+  arrayAfterDelete = [];
+  localSTG.splice(userId - 1, 1);
+
+  for (let i = 0; i < localSTG.length; i++) {
+    localSTG[i].id = i + 1;
+    const usuarioEnLocalSTG = localSTG[i];
+
+    arrayAfterDelete.push(usuarioEnLocalSTG);
+  }
+  let localAfterDelete = localStorage.setItem(
+    "users",
+    JSON.stringify(arrayAfterDelete)
+  );
+  location.href = "../html/admin.html";
+};
+
 RenderAdminFrancisco();
 RenderAdminUsers();
-usersActive();
+usersActiveDeleteIconCheck();
 matriculaPatientDelete();
