@@ -1,5 +1,5 @@
 function register() {
-  let userName = document.getElementById("userName").value;
+  let firstName = document.getElementById("firstName").value;
   let lastName = document.getElementById("lastName").value;
   let email = document.getElementById("email").value;
   let pass = document.getElementById("pass").value;
@@ -10,7 +10,7 @@ function register() {
   const array = [];
 
   if (
-    userName === "" ||
+    firstName === "" ||
     lastName === "" ||
     email === "" ||
     pass === "" ||
@@ -23,14 +23,14 @@ function register() {
       array.push(usuarioEnLocalSTG);
     }
 
-    let userExist = localSTG.filter((local) => local.userName === userName);
+    let userExist = localSTG.filter((local) => local.email === email);
     console.log("userExist", userExist);
 
     if (userExist.length === 0) {
       if (pass === checkPass) {
         array.push({
           id: localSTG.length + 1,
-          userName,
+          firstName,
           lastName,
           email,
           pass,
@@ -39,7 +39,6 @@ function register() {
           condition: "inactive",
         });
         localStorage.setItem("users", JSON.stringify(array));
-        console.log(array);
       } else {
         alert("Las contraseñas no coinciden");
       }
@@ -51,7 +50,7 @@ function register() {
 }
 
 function registerDr() {
-  let userName = document.getElementById("userNameDr").value;
+  let firstName = document.getElementById("firstNameDr").value;
   let lastName = document.getElementById("lastNameDr").value;
   let matricula = document.getElementById("matricula").value;
   let email = document.getElementById("emailDr").value;
@@ -63,7 +62,7 @@ function registerDr() {
   const array = [];
 
   if (
-    userName === "" ||
+    firstName === "" ||
     lastName === "" ||
     email === "" ||
     pass === "" ||
@@ -84,7 +83,7 @@ function registerDr() {
       if (pass === checkPass) {
         array.push({
           id: localSTG.length + 1,
-          userName,
+          firstName,
           lastName,
           email,
           pass,
@@ -93,7 +92,6 @@ function registerDr() {
           condition: "inactive",
         });
         localStorage.setItem("users", JSON.stringify(array));
-        console.log(array);
       } else {
         alert("Las contraseñas no coinciden");
       }
