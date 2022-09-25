@@ -11,7 +11,7 @@ let descripcionInput = document.getElementById("exampleInputDescripcion1");
 // Crear Nueva Publicidad
 let publicityArray = [];
 //User Interface
-let botonCrear = document.getElementById("staticBackdrop");
+let formCrear = document.getElementById("formulario");
 
 
 // Clase para la Interfaz de Usuario
@@ -49,7 +49,7 @@ function cargarEventListeners(e){
     descripcionInput.addEventListener('change', datosPublicidad);
     
     
-    botonCrear.addEventListener("submit", nuevaPublicidad)
+    formCrear.addEventListener("submit", nuevaPublicidad)
 
 }
 
@@ -80,13 +80,32 @@ function nuevaPublicidad(e){
         return;
     } 
 
-    // Crear una nueva publicidad
-    administrarPublicidades.agregarPublicidad(newObject);
-    
+    // TODO: OPCIONAL : Generar id unico
+    // newObject.id = Date.now();
 
 
+    /* Crear una nueva publicidad
+    // FIXME: Se aplica REST operator {...} Para pasar una copia del objeto
+    newObject, sino este se sobreescribe y se pasa siempre el mismo objeto al array
+    */ 
+    administrarPublicidades.agregarPublicidad({...newObject});
+
+    //Reiniciar formulario
+    formCrear.reset();
 
 
+    //Reiniciar objeto
+    reiniciarObjeto();
+
+
+}
+
+// Reiniciar objeto para no repetir validaciones
+function reiniciarObjeto(){
+    newObject.codigo = '';
+    newObject.url = '';
+    newObject.categoria = '';
+    newObject.descripcion = '';
 }
 
 
@@ -106,6 +125,8 @@ let publicitys = [
         destacado:false
     }
 ]
+
+// Aplicaciones en el LOCALStorage
 
 localStorage.setItem("publicity", JSON.stringify(publicitys));
 
