@@ -5,13 +5,13 @@ body{
     height: 100vh;
 }
 
-header{
+/* header{
     background-image: url('../img/publicidad5.jpg');
     background-size:cover;
     height: 550px;
     position: relative;
     overflow: hidden;
-}
+} */
 .logo{
     width: 50px;
     border-radius: 40px;
