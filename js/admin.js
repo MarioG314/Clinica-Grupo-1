@@ -19,9 +19,10 @@ const RenderAdminFrancisco = () => {
 };
 
 const RenderAdminUsers = () => {
-  tableUsersBody.innerHTML = localSTG.map(
-    (users) =>
-      ` <tr>
+  tableUsersBody.innerHTML = localSTG
+    .map(
+      (users) =>
+        ` <tr>
                 <th class="text-center text-dark align-middle" scope="row">${users.id}</th>
                 <td class="text-center text-dark align-middle">${users.userName}</td>
                 <td class="text-center text-dark align-middle">${users.lastName}</td>
@@ -133,7 +134,9 @@ const RenderAdminUsers = () => {
 
                 </td>
               </tr>`
-  );
+    )
+    .flat()
+    .join("");
 };
 
 
@@ -159,12 +162,6 @@ const enableUser = (checkModalId) => {
       JSON.stringify(localSTG)
     );
 
-    let deleteCheckButtom = document.getElementById(
-      `checkbuttom${checkModalId}`
-    );
-    let deleteCheckButtomModal = document.getElementById(
-      `exampleModal${checkModalId}`
-    );
     location.href = "../html/admin.html";
   }, 300);
 };
