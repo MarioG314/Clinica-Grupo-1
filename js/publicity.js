@@ -8,72 +8,98 @@ let urlInput = document.getElementById("exampleInputUrl1");
 let categoriaInput = document.getElementById("exampleInputCategoria1");
 let descripcionInput = document.getElementById("exampleInputDescripcion1");
 
-let botonCrear = document.getElementById("staticBackdrop");
-let modalCrearPublicidad = document.querySelector("#staticBackdrop");
 // Crear Nueva Publicidad
 let publicityArray = [];
+//User Interface
+let botonCrear = document.getElementById("staticBackdrop");
 
 
-// Eventos crear publicidad
+// Clase para la Interfaz de Usuario
+class UI{
+    
+}
 
-botonCrear.addEventListener("submit", crearPublicidad)
+// Clase para manejar las publicidades
+class Publicidades{
+    constructor() {
+        this.publicidades = [];
+    }
+
+    //Metodo para agregar Publicidad
+    agregarPublicidad(publicidad){
+        // Agrega la publicidad actual al arreglo de publicidades
+        this.publicidades = [...this.publicidades, publicidad];
+
+        console.log(this.publicidades);
+
+    }
+}
+
+// Instanciar clases para trabajarlas
+const ui = new UI();
+const administrarPublicidades = new Publicidades
 
 
+// Eventos 
 cargarEventListeners();
 function cargarEventListeners(e){
     codigoInput.addEventListener('change', datosPublicidad);
     urlInput.addEventListener('change', datosPublicidad);
     categoriaInput.addEventListener('change', datosPublicidad);
     descripcionInput.addEventListener('change', datosPublicidad);
-
-
+    
+    
+    botonCrear.addEventListener("submit", nuevaPublicidad)
 
 }
 
 const newObject = {
-    id: '',
+    codigo: '',
     url: '',
     categoria: '',
-    descripcion: ''
-    
+    descripcion: '',
 }
 
 function datosPublicidad(e){
     newObject[e.target.name] = e.target.value;
+    newObject.id = codigoInput.value;
     // console.log(newObject);
-}
-
-function crearPublicidad(){
-    console.log(newObject);
-
-}
-function crearPublicidades(objeto){
-    //Desestructuracion
-    const{ codigoInput, urlInput, categoriaInput, descripcionInput } = objeto; 
     
+}
+
+function nuevaPublicidad(e){
+    e.preventDefault();
+        
+    //Desestructuracion para extraer la informacion del objeto newObject
+    const { codigo, url, categoria, descripcion } = newObject;
+
     // Validacion
-if( codigoInput === '' || urlInput === '', categoriaInput === '', descripcionInput === '' ){
-    console.log('Todos los campos deben ser completados');
-} else {
-    console.log('Categoria creada exitosamente');
+    if(codigo === '' || url === '' || categoria === '' || descripcion === ''){
+        console.log('Todos los campos deben ser completados');
+
+        return;
+    } 
+
+    // Crear una nueva publicidad
+    administrarPublicidades.agregarPublicidad(newObject);
+    
+
+
+
+
 }
 
-publicityArray = [...publicityArray, newObject];
-console.log(publicityArray);
-
-    // objeto.forEach(publicidad => publicityArray.push(publicidad))
-}
 
 let publicitys = [
     {
-        id: 380,
+        codigo: 380,
         img: { src:"../img/publicidad1.png"},
         categoria: "cardio",
         descripcion: "",
         destacado:true
     },
     {
-        id: 390,
+        codigo: 390,
         img: { src:"../img/publicidad2.jpg"},
         categoria: "cardio",
         descripcion: "",
