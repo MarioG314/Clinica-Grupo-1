@@ -103,7 +103,7 @@ const RenderAdminUsers = () => {
                   </div>
 
                   <!-- Button trigger modal -->
-                  <button type="  button" id= "checkbuttom${users.id}"  class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal${users.id}">
+                  <button type="  button" id= "checkbuttom${users.id}"  class="btn btn-light btn-table-modal-width me-3" data-bs-toggle="modal" data-bs-target="#exampleModal${users.id}">
                     <i class="fa-solid  fa-check  admin-icon-table "></i>
                   </button>
 
@@ -329,7 +329,7 @@ const changeAdmin = (changeAdminId) => {
   }, 300);
 };
 
-const matriculaPatientDelete = () => {
+const matriculaModalPatientDelete = () => {
   let modalChangeUsers = localSTG.filter((users) => users.role === "Paciente");
   modalChangeUsers.forEach((matricula) => {
     let deleteMatriculaInput = document.getElementById(
@@ -390,6 +390,6 @@ const inactiveIconsDelete = () => {
 RenderAdminFrancisco();
 RenderAdminUsers();
 usersActiveDeleteIconCheck();
-matriculaPatientDelete();
+matriculaModalPatientDelete();
 inactiveIconsDelete();
 otherInputSelector();
