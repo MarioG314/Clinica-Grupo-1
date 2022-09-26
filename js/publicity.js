@@ -1,5 +1,4 @@
 // Creacion de objeto publicidades en localStorage
-let localSTGPublicity = JSON.parse(localStorage.getItem("publicity"));
 let tablePublicitysBody = document.getElementById("table-publicitys-body");
 
 // Inputs de formulario CREAR publicidad
@@ -161,10 +160,15 @@ class Publicidades{
     agregarPublicidad(publicidad){
         // Agrega la publicidad actual al arreglo de publicidades
         this.publicidades = [...this.publicidades, publicidad];
-
-        console.warn(this.publicidades);
-
+        
     }
+
+    registrarLocalStorage(){
+        publicityArray = [...this.publicidades];
+        // Inyeccion de array de publicidades al LST
+        localStorage.setItem("publicity", JSON.stringify(publicityArray));
+    }
+    
 }
 
 // Instanciar clases para trabajarlas
@@ -220,8 +224,11 @@ function nuevaPublicidad(e){
     // FIXME: Se aplica REST operator {...} Para pasar una copia del objeto
     newObject, sino este se sobreescribe y se pasa siempre el mismo objeto al array
     */ 
+    
     administrarPublicidades.agregarPublicidad({...newObject});
 
+    administrarPublicidades.registrarLocalStorage();
+    
     //Reiniciar formulario
     formCrear.reset();
 
@@ -241,6 +248,8 @@ function reiniciarObjeto(){
     newObject.categoria = '';
     newObject.descripcion = '';
 }
+
+
 
 
 
