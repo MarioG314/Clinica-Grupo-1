@@ -1,4 +1,4 @@
-let localSTG = JSON.parse(localStorage.getItem("users"));
+let localSTG = JSON.parse(localStorage.getItem("users")) || [];
 let localSTGAdmin = JSON.parse(localStorage.getItem("admin"));
 
 let tableAdminBody = document.getElementById("table-admin-body");
