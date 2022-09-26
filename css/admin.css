@@ -61,6 +61,16 @@
   background-color: rgb(184, 11, 11);
   transition: 0.5s;
 }
+.admin-btn-navbar {
+  background-color: #4993fa;
+  color: azure;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.admin-btn-navbar:hover {
+  background-color: #0b50af;
+  transition: 0.5s;
+}
 .modal-content-img-publicity {
   background-image: url(/img/publicidad1.png);
   background-position: center;
@@ -100,6 +110,12 @@
 @media (min-width: 768px) {
   .admin-icon-table {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-btn-navbar {
+    width: 10rem;
   }
 }
 header {
