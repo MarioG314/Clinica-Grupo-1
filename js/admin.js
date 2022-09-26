@@ -194,13 +194,23 @@ const changeAdmin = (changeAdminId) => {
 
 const matriculaModalPatientDelete = () => {
   let modalChangeUsers = localSTG.filter((users) => users.role === "Paciente");
-  modalChangeUsers.forEach((matricula) => {
+  modalChangeUsers.forEach((matriculaDelete) => {
     let deleteMatriculaInput = document.getElementById(
-      `inputMatricula${matricula.id}`
+      `inputMatricula${matriculaDelete.id}`
     );
 
     deleteMatriculaInput.style.display = "none";
   });
+};
+const matriculaLocalPatientDelete = () => {
+  let localChangeUsers = localSTG.filter((users) => users.role === "Paciente");
+  localChangeUsers.forEach((matriculaDelete) => {
+    matriculaDelete.matricula = "";
+  });
+  localSTGDeleteMatriculaPatient = localStorage.setItem(
+    "users",
+    JSON.stringify(localSTG)
+  );
 };
 
 const deleteUser = (userId) => {
@@ -253,6 +263,7 @@ const inactiveIconsDelete = () => {
     deleteIconTrash.style.display = "none";
   });
 };
+matriculaLocalPatientDelete();
 RenderAdminFrancisco();
 RenderAdminUsers();
 usersActiveDeleteIconCheck();
