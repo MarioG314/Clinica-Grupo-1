@@ -84,9 +84,9 @@ const RenderAdminUsers = () => {
             
                    <div class="mb-2">
               <h5 class="fs-6">Rol</h5>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example " value=${users.role} id="rolChange${users.id}">
-  <option value="${users.role} " class="fs-6">${users.role}</option>
-  <option id="otherInputSelector${users.id}" class="fs-6"></option>
+            <select class="form-select mb-3"   id="rolChange${users.id}">
+  <option id="inputSelector${users.id}" value="${users.role} " class="fs-6">${users.role}</option>
+  <option  id="otherInputSelector${users.id}" class="fs-6"></option>
   
 </select>
             </div>
@@ -194,13 +194,23 @@ const changeAdmin = (changeAdminId) => {
 
 const matriculaModalPatientDelete = () => {
   let modalChangeUsers = localSTG.filter((users) => users.role === "Paciente");
-  modalChangeUsers.forEach((matricula) => {
+  modalChangeUsers.forEach((matriculaDelete) => {
     let deleteMatriculaInput = document.getElementById(
-      `inputMatricula${matricula.id}`
+      `inputMatricula${matriculaDelete.id}`
     );
 
     deleteMatriculaInput.style.display = "none";
   });
+};
+const matriculaLocalPatientDelete = () => {
+  let localChangeUsers = localSTG.filter((users) => users.role === "Paciente");
+  localChangeUsers.forEach((matriculaDelete) => {
+    matriculaDelete.matricula = "";
+  });
+  localSTGDeleteMatriculaPatient = localStorage.setItem(
+    "users",
+    JSON.stringify(localSTG)
+  );
 };
 
 const deleteUser = (userId) => {
@@ -225,9 +235,12 @@ const otherInputSelector = () => {
     let otherInputSelector = document.getElementById(
       `otherInputSelector${element.id}`
     );
+    let inputSelector = document.getElementById(`inputSelector${element.id}`);
     if (element.role === "Paciente") {
       otherInputSelector.innerHTML = `Doctor`;
       otherInputSelector.value = `Doctor`;
+      inputSelector.innerHTML = `Paciente`;
+      inputSelector.value = `Paciente`;
     } else {
       otherInputSelector.innerHTML = `Paciente`;
       otherInputSelector.value = `Paciente`;
@@ -250,9 +263,12 @@ const inactiveIconsDelete = () => {
     deleteIconTrash.style.display = "none";
   });
 };
+matriculaLocalPatientDelete();
 RenderAdminFrancisco();
 RenderAdminUsers();
 usersActiveDeleteIconCheck();
 matriculaModalPatientDelete();
 inactiveIconsDelete();
 otherInputSelector();
+
+let selecttor = document.getElementById("selector");
