@@ -36,18 +36,18 @@ const RenderAdminUsers = () => {
                   
                  <div class="modal fade" id="staticBackdropdelete${users.id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content admin-modal-bg">
+                        <div class="modal-header admin-modal-header">
                         
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-center fs-5 text-dark">
-                         Desea eliminar a este usuario
+                        <div class="modal-body text-center fs-4 text-dark">
+                         <p class="text-center">Desea eliminar a este usuario</p>
                         </div>
-                        <div class="modal-footer d-flex justify-content-center">
+                        <div class="modal-footer d-flex justify-content-center admin-modal-footer">
                           
-                          <button type="button" class="btn btn-danger" onclick="deleteUser(${users.id})">Eliminar</button>
+                          <button type="button" class="admin-modal-btn-delete px-3 py-2" onclick="deleteUser(${users.id})">Eliminar</button>
                         </div>
                       </div>
                     </div>
@@ -61,12 +61,14 @@ const RenderAdminUsers = () => {
                   <!-- Modal -->
                   <div class="modal fade  text-dark" id="staticBackdropmodify${users.id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="staticBackdropLabel">Realizar cambios</h5>
-                          <button type="button" class="btn-close"   data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-dialog modal-dialog-centered ">
+                      <div class="modal-content admin-modal-bg">
+                        <div class="modal-header admin-modal-header d-flex justify-content-center px-0 py-3 ">
+                          <h5 class="modal-title admin-modal-title   fs-4  text-center " id="staticBackdropLabel">Realizar cambios</h5>
+                          <div class =" d-flex justify-content-end" >
+                          <button type="button" class="btn-close  "   data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                          </div>
                         <div class="modal-body">
                               <form>
             <div class="mb-2 mt-3">
@@ -92,7 +94,7 @@ const RenderAdminUsers = () => {
             </div>
            
             <div class="text-center">
-            <button type="button" class="btn btn-primary  mt-3" onclick="changeAdmin(${users.id})">Guardar cambios</button>
+            <button type="button" class="admin-modal-btn-accept px-3 py-2 mt-3" onclick="changeAdmin(${users.id})">Guardar cambios</button>
             </div>
          </form>
                         </div>
@@ -107,24 +109,24 @@ const RenderAdminUsers = () => {
                   </button>
 
                   <!-- Modal -->
-                  <div class="modal fade   " id="exampleModal${users.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  <div class="modal fade    " id="exampleModal${users.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog ">
-                      <div class="modal-content">
+                    <div class="modal-dialog modal-dialog-centered    ">
+                      <div class="modal-content admin-modal-bg  ">
                         <div class="modal-header admin-modal-header">
 
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <button type="button" class="btn-close  " data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
-                        <div class="modal-body d-flex justify-content-center admin-modal-body">
+                        <div class="modal-body d-flex justify-content-center  admin-modal-body">
 
-                          <p class="fs-5 mt-4 text-dark "> Desea habilitar al usuario</p>
+                          <p class="fs-4 mt-4 text-dark text-center "> Desea habilitar a este usuario</p>
 
                         </div>
 
                         <div class="modal-footer d-flex justify-content-center admin-modal-footer">
-                          <button type="button" class="btn btn-secondary" onclick="deleteUser(${users.id})" data-bs-dismiss="modal">Rechazar</button>
-                          <button type="button" class="btn btn-primary"  onclick="enableUser(${users.id})">Habilitar</button>
+                          <button type="button" class=" admin-modal-btn-delete py-2 px-3" onclick="deleteUser(${users.id})" data-bs-dismiss="modal">Rechazar</button>
+                          <button type="button" class=" admin-modal-btn-accept py-2 px-3 "  onclick="enableUser(${users.id})">Habilitar</button>
                         </div>
                       </div>
                     </div>
