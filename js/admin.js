@@ -47,7 +47,7 @@ const RenderAdminUsers = () => {
                         </div>
                         <div class="modal-footer d-flex justify-content-center admin-modal-footer">
                           
-                          <button type="button" class="admin-modal-btn-delete px-3 py-2" onclick="deleteUser(${users.id})">Eliminar</button>
+                          <button type="button" class="admin-modal-btn-delete px-3 py-2 fs-6" onclick="deleteUser(${users.id})">Eliminar</button>
                         </div>
                       </div>
                     </div>
@@ -72,20 +72,20 @@ const RenderAdminUsers = () => {
                         <div class="modal-body">
                               <form>
             <div class="mb-2 mt-3">
-               <label for="firstNameChange${users.id}" class="form-label">Nombre</label>
+               <label for="firstNameChange${users.id}" class="form-label fs-6">Nombre</label>
                <input type="text" class="form-control" id="firstNameChange${users.id}" value = ${users.firstName}>
             </div>
             <div class="mb-2">
-               <label for="lastNameChange${users.id}" class="form-label">Apellido</label>
+               <label for="lastNameChange${users.id}" class="form-label fs-6">Apellido</label>
                <input type="text" class="form-control" id="lastNameChange${users.id}" value = ${users.lastName}>
             </div>
             <div class="mb-2" id="inputMatricula${users.id}">
-               <label for="matriculaChange${users.id}" class="form-label">Matrícula</label>
+               <label for="matriculaChange${users.id}" class="form-label fs-6">Matrícula</label>
                <input type="text" class="form-control" id="matriculaChange${users.id}" value = ${users.matricula}>
             </div>
             
                    <div class="mb-2">
-              <h5 class="fs-6">Rol</h5>
+              <h6 class="fs-6 ">Rol</h6>
             <select class="form-select mb-3"   id="rolChange${users.id}">
   <option id="inputSelector${users.id}" value="${users.role} " class="fs-6">${users.role}</option>
   <option  id="otherInputSelector${users.id}" class="fs-6"></option>
@@ -94,7 +94,7 @@ const RenderAdminUsers = () => {
             </div>
            
             <div class="text-center">
-            <button type="button" class="admin-modal-btn-accept px-3 py-2 mt-3" onclick="changeAdmin(${users.id})">Guardar cambios</button>
+            <button type="button" class="admin-modal-btn-accept px-3 py-2 mt-3 fs-6" onclick="changeAdmin(${users.id})">Guardar cambios</button>
             </div>
          </form>
                         </div>
@@ -125,8 +125,8 @@ const RenderAdminUsers = () => {
                         </div>
 
                         <div class="modal-footer d-flex justify-content-center admin-modal-footer">
-                          <button type="button" class=" admin-modal-btn-delete py-2 px-3" onclick="deleteUser(${users.id})" data-bs-dismiss="modal">Rechazar</button>
-                          <button type="button" class=" admin-modal-btn-accept py-2 px-3 "  onclick="enableUser(${users.id})">Habilitar</button>
+                          <button type="button" class=" admin-modal-btn-delete py-2 px-3 fs-6" onclick="deleteUser(${users.id})" data-bs-dismiss="modal">Rechazar</button>
+                          <button type="button" class=" admin-modal-btn-accept py-2 px-3 fs-6 "  onclick="enableUser(${users.id})">Habilitar</button>
                         </div>
                       </div>
                     </div>
