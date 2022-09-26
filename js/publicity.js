@@ -1,6 +1,7 @@
 // Creacion de objeto publicidades en localStorage
 let tablePublicitysBody = document.getElementById("table-publicitys-body");
 
+
 // Inputs de formulario CREAR publicidad
 let codigoInput = document.getElementById("exampleInputCode1");
 let urlInput = document.getElementById("exampleInputUrl1");
@@ -12,11 +13,35 @@ let publicityArray = [];
 //User Interface
 let formCrear = document.getElementById("formulario");
 
+// Eventos 
+cargarEventListeners();
+function cargarEventListeners(){
+    codigoInput.addEventListener('change', datosPublicidad);
+    urlInput.addEventListener('change', datosPublicidad);
+    categoriaInput.addEventListener('change', datosPublicidad);
+    descripcionInput.addEventListener('change', datosPublicidad);
+    
+    // Muestra las publicidades del LocalStorage
+    document.addEventListener('DOMContentLoaded', ()=>{
+        publicityArray = JSON.parse(localStorage.getItem("publicity")) || [];
+        
+        
+        console.log('Desde DOMContentLoaded',publicityArray);
+        
+        
+        
+    });
+
+
+    //Boton crear publicidad
+    formCrear.addEventListener("submit", nuevaPublicidad);
+
+}
 
 // Clase para la Interfaz de Usuario
 class UI{
     imprimirPublicidades({publicidades}){
-
+        
         this.limpiarHTML();
 
         publicidades.forEach(publicidad =>{
@@ -55,7 +80,7 @@ class UI{
             <td class="text-center align-middle">
             <div class="d-flex justify-content-center ">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+            <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick = eliminarPublicidad(${id})>
             <i class=" fa-solid  fa-trash-can  admin-icon-table "></i>
             </button>
             
@@ -65,15 +90,15 @@ class UI{
             <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">Eliminar publicidad</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-            ...
+            <div class="modal-body h4">
+            Estas seguro de eliminar la publicidad?
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="eliminarPublicidad(${id})">Confirmar</button>
             </div>
             </div>
             </div>
@@ -126,8 +151,8 @@ class UI{
           </div>
           
           <div class="modal-footer d-flex justify-content-center admin-modal-footer">
-          <button type="button" id="agree" class="btn btn-secondary" onclick="destacarPublicidad(${id})" data-bs-dismiss="modal">Sí</button>
-          <button type="button" id="disclaim" class="btn btn-primary">No</button>
+          <button type="button" id="agree" class="btn btn-primary" onclick="destacarPublicidad(${id})" data-bs-dismiss="modal">Sí</button>
+          <button type="button" id="disclaim" class="btn btn-danger">No</button>
           </div>
           </div>
           </div>
@@ -137,10 +162,12 @@ class UI{
           </tr>
           `;
           
-          // Agregar las publicidades al contenedor de la lista
-          tablePublicitysBody.appendChild(divPublicidades);
-          
-        });
+        // Agregar las publicidades al contenedor de la lista
+        tablePublicitysBody.appendChild(divPublicidades);
+        
+    });
+    
+    sincronizarLocalStorage();
     }
 
     limpiarHTML(){
@@ -163,12 +190,12 @@ class Publicidades{
         
     }
 
-    registrarLocalStorage(){
-        publicityArray = [...this.publicidades];
-        // Inyeccion de array de publicidades al LST
-        localStorage.setItem("publicity", JSON.stringify(publicityArray));
-    }
+    eliminarPublicidad(id){
+        this.publicidades = this.publicidades.filter(publicidad => publicidad.id !== id);
     
+        ui.imprimirPublicidades();
+    }
+
 }
 
 // Instanciar clases para trabajarlas
@@ -176,18 +203,6 @@ const ui = new UI();
 const administrarPublicidades = new Publicidades();
 
 
-// Eventos 
-cargarEventListeners();
-function cargarEventListeners(e){
-    codigoInput.addEventListener('change', datosPublicidad);
-    urlInput.addEventListener('change', datosPublicidad);
-    categoriaInput.addEventListener('change', datosPublicidad);
-    descripcionInput.addEventListener('change', datosPublicidad);
-    
-    
-    formCrear.addEventListener("submit", nuevaPublicidad)
-
-}
 
 const newObject = {
     codigo: '',
@@ -227,19 +242,23 @@ function nuevaPublicidad(e){
     
     administrarPublicidades.agregarPublicidad({...newObject});
 
-    administrarPublicidades.registrarLocalStorage();
+    sincronizarLocalStorage(administrarPublicidades);
+
+    
+    //Reiniciar objeto para la validacion correcta, sin repetirse
+    reiniciarObjeto();
     
     //Reiniciar formulario
     formCrear.reset();
-
-    //Reiniciar objeto para la validacion correcta, sin repetirse
-    reiniciarObjeto();
-
+    
     //Mostrar el HTML de las publicidades creadas
     ui.imprimirPublicidades(administrarPublicidades);
-
-
 }
+
+function eliminarPublicidad(id){
+    administrarPublicidades.eliminarPublicidad(id);
+}
+
 
 
 function reiniciarObjeto(){
@@ -249,11 +268,14 @@ function reiniciarObjeto(){
     newObject.descripcion = '';
 }
 
+function sincronizarLocalStorage({publicidades}){
+    // Inyeccion de array de publicidades al LST
+    localStorage.setItem("publicity",JSON.stringify(publicidades));
+    
+}
 
 
-
-
-  function destacarPublicidad(id) {
+function destacarPublicidad(id) {
     console.log(id);
     let publicidades = JSON.parse(localStorage.getItem("publicity")) || [];
     const arrayPublicidad = [];
