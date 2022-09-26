@@ -1,3 +1,10 @@
+/* .paleta{
+   color: #F1FAFB;
+   color: #A0E4F1;
+   color: #9DC6FF;
+   color: #4993FA;
+} */
+
 .modal-backdrop {
   position: unset;
 }
@@ -15,7 +22,41 @@
 
   height: 4rem;
 }
-
+.admin-modal-title {
+  width: 85%;
+}
+.admin-modal-bg {
+  background-color: #f1fafb;
+}
+.admin-modal-header {
+  border-bottom: 0;
+}
+.admin-modal-body {
+  border-bottom: 0;
+}
+.admin-modal-footer {
+  border-top: 0;
+}
+.admin-modal-btn-accept {
+  background-color: #1f69cf;
+  color: azure;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.admin-modal-btn-accept:hover {
+  background-color: #0b50af;
+  transition: 0.5s;
+}
+.admin-modal-btn-delete {
+  background-color: rgb(182, 62, 62);
+  color: azure;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.admin-modal-btn-delete:hover {
+  background-color: rgb(184, 11, 11);
+  transition: 0.5s;
+}
 .modal-content-img-publicity {
   background-image: url(/img/publicidad1.png);
   background-position: center;
@@ -57,6 +98,6 @@
     font-size: 1.5rem;
   }
 }
- header{
+header {
   margin-top: 6.25rem;
- }
+}
