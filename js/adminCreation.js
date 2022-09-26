@@ -1,6 +1,6 @@
 const admin = {
   id: 0,
-  userName: "Francisco",
+  firstName: "Francisco",
   lastName: "Terán",
   role: "Admin",
   email: "fran@gmail.com",
