@@ -1,15 +1,13 @@
 let localSTG = JSON.parse(localStorage.getItem("users"));
 let localSTGAdmin = JSON.parse(localStorage.getItem("admin"));
 
-
 let tableAdminBody = document.getElementById("table-admin-body");
 let tableUsersBody = document.getElementById("table-users-body");
-
 
 const RenderAdminFrancisco = () => {
   tableAdminBody.innerHTML = `  <tr>
                 <th class="text-center align-middle" scope="row">${localSTGAdmin.id}</th>
-                <td class="text-center align-middle">${localSTGAdmin.userName}</td>
+                <td class="text-center align-middle">${localSTGAdmin.firstName}</td>
                 <td class="text-center align-middle">${localSTGAdmin.lastName}</td>
                 <td class="text-center align-middle" >${localSTGAdmin.role}</td>
                 <td class="text-center align-middle"></td>
@@ -24,7 +22,7 @@ const RenderAdminUsers = () => {
       (users) =>
         ` <tr>
                 <th class="text-center text-dark align-middle" scope="row">${users.id}</th>
-                <td class="text-center text-dark align-middle">${users.userName}</td>
+                <td class="text-center text-dark align-middle">${users.firstName}</td>
                 <td class="text-center text-dark align-middle">${users.lastName}</td>
                 <td class="text-center text-dark align-middle" >${users.role}</td>
                 <td class="text-center text-dark align-middle" >${users.matricula}</td>
@@ -72,8 +70,8 @@ const RenderAdminUsers = () => {
                         <div class="modal-body">
                               <form>
             <div class="mb-2 mt-3">
-               <label for="userNameChange${users.id}" class="form-label">Nombre</label>
-               <input type="text" class="form-control" id="userNameChange${users.id}" value = ${users.userName}>
+               <label for="firstNameChange${users.id}" class="form-label">Nombre</label>
+               <input type="text" class="form-control" id="firstNameChange${users.id}" value = ${users.firstName}>
             </div>
             <div class="mb-2">
                <label for="lastNameChange${users.id}" class="form-label">Apellido</label>
@@ -139,7 +137,6 @@ const RenderAdminUsers = () => {
     .join("");
 };
 
-
 const usersActiveDeleteIconCheck = () => {
   let activeUsers = localSTG.filter((users) => users.condition === "active");
   activeUsers.forEach((active) => {
@@ -169,7 +166,7 @@ const enableUser = (checkModalId) => {
 const changeAdmin = (changeAdminId) => {
   setTimeout(function () {
     let nameChange = document.getElementById(
-      `userNameChange${changeAdminId}`
+      `firstNameChange${changeAdminId}`
     ).value;
 
     let matriculaChange = document.getElementById(
@@ -182,7 +179,7 @@ const changeAdmin = (changeAdminId) => {
 
     const adminChange = localSTG.filter((users) => users.id === changeAdminId);
 
-    adminChange[0].userName = nameChange;
+    adminChange[0].firstName = nameChange;
     adminChange[0].lastName = lastNameChange;
     adminChange[0].matricula = matriculaChange;
     adminChange[0].role = roleChange;
