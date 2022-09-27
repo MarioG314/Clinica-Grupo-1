@@ -272,5 +272,3 @@ usersActiveDeleteIconCheck();
 matriculaModalPatientDelete();
 inactiveIconsDelete();
 otherInputSelector();
-
-let selecttor = document.getElementById("selector");
