@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     //Boton crear publicidad
     createPublicityForm.addEventListener("submit", createNewPublicity);
     console.log(publicityArray);
-    // printHTML(publicityArray);
+    printHTML(localSTGPublicity);
 });
 
 
@@ -231,11 +231,12 @@ function createNewPublicity(e){
     */ 
     publicityArray = [...publicityArray, {...newObject}];
     console.log(publicityArray);
+
+    printHTML(publicityArray);
     // administrarPublicidades.agregarPublicidad({...newObject});
 
     syncLocalStorage();
     // sincronizarLocalStorage(administrarPublicidades);
-
     
     //Reiniciar objeto para la validacion correcta, sin repetirse
     restartObject();
@@ -247,8 +248,14 @@ function createNewPublicity(e){
     // ui.imprimirPublicidades(JSON.parse(localStorage.getItem("publicity")));
 }
 
-function eliminarPublicidad(id){
-    administrarPublicidades.eliminarPublicidad(id);
+function deletePublicity(id){
+    publicityArray = publicityArray.filter(publicidad => publicidad.id !== id);
+
+    console.log(publicityArray);
+
+    // printHTML(publicityArray);
+    
+
 }
 
 
@@ -262,17 +269,17 @@ function restartObject(){
 
 function syncLocalStorage(){
     // Inyeccion de array de publicidades al LST
-    localSTGPublicity.setItem("publicity",JSON.stringify(publicityArray));
+    localStorage.setItem("publicity",JSON.stringify(publicityArray));
     
     }
     
 }
 
-function printHTML() {
+function printHTML(object) {
 
         cleanHTML();
         
-        publicityArray.forEach(publicity => {
+        object.forEach(publicity => {
             const { code, url, category, description, id } = publicity;
 
             const divPublicitys = document.createElement('tr');
@@ -308,7 +315,7 @@ function printHTML() {
                     <td class="text-center align-middle">
                     <div class="d-flex justify-content-center ">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick = eliminarPublicidad(${id})>
+                    <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick = deletePublicity(${id})>
                     <i class=" fa-solid  fa-trash-can  admin-icon-table "></i>
                     </button>
                     
@@ -326,7 +333,7 @@ function printHTML() {
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="eliminarPublicidad(${id})">Confirmar</button>
+                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="deletePublicity(${id})">Confirmar</button>
                     </div>
                     </div>
                     </div>
@@ -395,15 +402,8 @@ function printHTML() {
 
         });
 
-        syncLocalStorage();
+        
 }
-
-
-
-
-
-
-
 
 function cleanHTML(){
     while(tablePublicitysBody.firstChild){
