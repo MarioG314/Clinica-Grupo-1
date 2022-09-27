@@ -21,7 +21,7 @@ let createPublicityForm = document.getElementById("create-publicity-form");
 
 // Eventos cuando el DOM esta cargado
 document.addEventListener('DOMContentLoaded', ()=>{
-    // 
+    // LocalStorage 
     publicityArray =JSON.parse(localStorage.getItem("publicity")) || [];
     
     // Imprimir LocalStorage en el DOM
@@ -258,13 +258,14 @@ function createNewPublicity(e){
 }
 
 function deletePublicity(id){
-    console.warn(typeof id);
-    let STGfiltrada = localSTGPublicity.filter(publicity=> publicity.id !== toString(id));
-    console.log(STGfiltrada);
+    console.log(id);
+    publicityArray = publicityArray.filter(publicity => publicity.id !== String(id));
     
+    console.log(publicityArray);
+    syncLocalStorage();
 
-    
-    
+    printHTML()
+
 
 }
 
@@ -284,9 +285,10 @@ function syncLocalStorage(){
 }
     
 
-
+// Imprimir array de publicidades en el DOM
 function printHTML() {
 
+        // Limpiar DOM para evitar repeticion
         cleanHTML();
         
 
