@@ -21,13 +21,15 @@ let createPublicityForm = document.getElementById("create-publicity-form");
 
 // Eventos cuando el DOM esta cargado
 document.addEventListener('DOMContentLoaded', ()=>{
+    // 
+    publicityArray =JSON.parse(localStorage.getItem("publicity")) || [];
+    
     // Imprimir LocalStorage en el DOM
-    printHTML(localSTGPublicity);
+    printHTML();
+    
+    // tablePublicitysBody.addEventListener('click', deletePublicity)
     
     
-    //Botones de la lista de publicidades 
-    // deleteButton.addEventListener('click', deletePublicity);
-
     //Boton crear publicidad
     createPublicityForm.addEventListener("submit", createNewPublicity);
     
@@ -255,14 +257,13 @@ function createNewPublicity(e){
     // ui.imprimirPublicidades(JSON.parse(localStorage.getItem("publicity")));
 }
 
-function deletePublicity(e){
-    console.log(e.target.getAttribute('id'));
+function deletePublicity(id){
+    console.warn(typeof id);
+    let STGfiltrada = localSTGPublicity.filter(publicity=> publicity.id !== toString(id));
+    console.log(STGfiltrada);
+    
 
-    // publicityArray = publicityArray.filter(publicidad => publicidad.id !== id);
-
-    // console.log(publicityArray);
-
-    // // printHTML(publicityArray);
+    
     
 
 }
@@ -284,13 +285,13 @@ function syncLocalStorage(){
     
 
 
-function printHTML(object) {
+function printHTML() {
 
         cleanHTML();
         
 
         
-        object.forEach(publicity => {
+        publicityArray.forEach(publicity => {
             const { code, url, category, description, id } = publicity;
 
             const divPublicitys = document.createElement('tr');
@@ -326,7 +327,7 @@ function printHTML(object) {
                     <td class="text-center align-middle">
                     <div class="d-flex justify-content-center ">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                    <button id="iconTrash${id}" type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1${id}">
                     <i class=" fa-solid  fa-trash-can  admin-icon-table "></i>
                     </button>
                     
@@ -336,7 +337,7 @@ function printHTML(object) {
                     <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar publicidad</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel${id}">Eliminar publicidad</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body h4">
@@ -344,19 +345,19 @@ function printHTML(object) {
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="delete-button" >Confirmar</button>
+                    <button id="delete-button" type="button" class="btn btn-primary delete-publicity" onclick="deletePublicity(${id})">Confirmar</button>
                     </div>
                     </div>
                     </div>
                     </div><!-- fin boton de eliminar-->
                     
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn-table-modal-width btn btn-light me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                    <button type="button" class="btn-table-modal-width btn btn-light me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2${id}">
                     <i  class=" fa-solid  fa-pen-to-square   admin-icon-table "></i>
                     </button>
                     
                     <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                    <div class="modal fade" id="staticBackdrop2${id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
