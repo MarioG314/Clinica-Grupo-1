@@ -11,7 +11,7 @@ let codigoInput = document.getElementById("exampleInputCode1");
 let urlInput = document.getElementById("exampleInputUrl1");
 let categoriaInput = document.getElementById("exampleInputCategoria1");
 let descripcionInput = document.getElementById("exampleInputDescripcion1");
-let createPublicityForm = document.getElementById("formulario");
+let createPublicityForm = document.getElementById("create-publicity-form");
 
 
 // Eventos 
@@ -215,7 +215,7 @@ function datosPublicidad(e){
 
 function createNewPublicity(e){
     e.preventDefault();
-    console.log('Nueva publicidad');
+    console.log('Submit');
         
     //Desestructuracion para extraer la informacion del objeto newObject
     const { codigo, url, categoria, descripcion } = newObject;
@@ -227,28 +227,26 @@ function createNewPublicity(e){
         return;
     } 
 
-    // TODO: OPCIONAL : Generar id unico
-    // newObject.id = Date.now();
-
-
     /* Crear una nueva publicidad
     // FIXME: Se aplica REST operator {...} Para pasar una copia del objeto
     newObject, sino este se sobreescribe y se pasa siempre el mismo objeto al array
     */ 
-    
-    administrarPublicidades.agregarPublicidad({...newObject});
+    publicityArray = [...publicityArray, {...newObject}];
+    console.log(publicityArray);
+    // administrarPublicidades.agregarPublicidad({...newObject});
 
-    sincronizarLocalStorage(administrarPublicidades);
+    syncLocalStorage(publicityArray);
+    // sincronizarLocalStorage(administrarPublicidades);
 
     
     //Reiniciar objeto para la validacion correcta, sin repetirse
     reiniciarObjeto();
     
     //Reiniciar formulario
-    formCrear.reset();
+    createPublicityForm.reset();
     
     //Mostrar el HTML de las publicidades creadas
-    ui.imprimirPublicidades(JSON.parse(localStorage.getItem("publicity")));
+    // ui.imprimirPublicidades(JSON.parse(localStorage.getItem("publicity")));
 }
 
 function eliminarPublicidad(id){
@@ -264,9 +262,9 @@ function reiniciarObjeto(){
     newObject.descripcion = '';
 }
 
-function sincronizarLocalStorage({publicidades}){
+function syncLocalStorage(objeto){
     // Inyeccion de array de publicidades al LST
-    localStorage.setItem("publicity",JSON.stringify(publicidades));
+    localStorage.setItem("publicity",JSON.stringify(objeto));
     
 }
 
