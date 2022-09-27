@@ -40,7 +40,7 @@ const RenderAdminUsers = () => {
                       <div class="modal-content admin-modal-bg">
                         <div class="modal-header admin-modal-header">
                         
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <button type="button" class="btn-close fs-6" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center fs-4 text-dark">
                          <p class="text-center">Desea eliminar a este usuario</p>
@@ -66,7 +66,7 @@ const RenderAdminUsers = () => {
                         <div class="modal-header admin-modal-header d-flex justify-content-center px-0 py-3 ">
                           <h5 class="modal-title admin-modal-title   fs-4  text-center " id="staticBackdropLabel">Realizar cambios</h5>
                           <div class =" d-flex justify-content-end" >
-                          <button type="button" class="btn-close  "   data-bs-dismiss="modal" aria-label="Close"></button>
+                          <button type="button" class="btn-close fs-6  "   data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                           </div>
                         <div class="modal-body">
@@ -115,7 +115,7 @@ const RenderAdminUsers = () => {
                       <div class="modal-content admin-modal-bg  ">
                         <div class="modal-header admin-modal-header">
 
-                          <button type="button" class="btn-close  " data-bs-dismiss="modal" aria-label="Close"></button>
+                          <button type="button" class="btn-close fs-6  " data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <div class="modal-body d-flex justify-content-center  admin-modal-body">
