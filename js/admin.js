@@ -3,6 +3,12 @@ let localSTGAdmin = JSON.parse(localStorage.getItem("admin"));
 let localSTGCheck = JSON.parse(localStorage.getItem("idAlertCheck")) || {
   id: 0,
 };
+let localSTGDelete = JSON.parse(localStorage.getItem("idAlertDelete")) || {
+  id: 0,
+};
+let localSTGModify = JSON.parse(localStorage.getItem("idAlertModify")) || {
+  id: 0,
+};
 let tableAdminBody = document.getElementById("table-admin-body");
 let tableUsersBody = document.getElementById("table-users-body");
 
@@ -162,7 +168,7 @@ const enableUser = (checkModalId) => {
       "users",
       JSON.stringify(localSTG)
     );
-    localSTGAlert = localStorage.setItem(
+    let localSTGAlert = localStorage.setItem(
       "idAlertCheck",
       JSON.stringify({ id: checkModalId })
     );
@@ -174,9 +180,12 @@ const enableUser = (checkModalId) => {
 const alertCheck = () => {
   setTimeout(function () {
     if (localSTGCheck.id !== 0) {
-      alert("El usuario ha sido habilitado con éxito");
+      Swal.fire({
+        icon: "success",
 
-      localDeleteIdCheck = localStorage.setItem(
+        text: "El usuario ha sido habilitado con éxito",
+      });
+      let localCheck = localStorage.setItem(
         "idAlertCheck",
 
         JSON.stringify({ id: 0 })
@@ -184,7 +193,7 @@ const alertCheck = () => {
     } else {
       [];
     }
-  }, 300);
+  }, 600);
 };
 
 const changeAdmin = (changeAdminId) => {
@@ -212,8 +221,31 @@ const changeAdmin = (changeAdminId) => {
       "users",
       JSON.stringify(localSTG)
     );
+    let localSTGAlert = localStorage.setItem(
+      "idAlertModify",
+      JSON.stringify({ id: changeAdminId })
+    );
     location.href = "../html/admin.html";
   }, 300);
+};
+
+const alertModify = () => {
+  setTimeout(function () {
+    if (localSTGModify.id !== 0) {
+      Swal.fire({
+        icon: "success",
+
+        text: "El usuario ha sido modificado con éxito",
+      });
+      let localModify = localStorage.setItem(
+        "idAlertModify",
+
+        JSON.stringify({ id: 0 })
+      );
+    } else {
+      [];
+    }
+  }, 600);
 };
 
 const matriculaModalPatientDelete = () => {
@@ -238,20 +270,45 @@ const matriculaLocalPatientDelete = () => {
 };
 
 const deleteUser = (userId) => {
-  arrayAfterDelete = [];
-  localSTG.splice(userId - 1, 1);
+  setTimeout(function () {
+    arrayAfterDelete = [];
+    localSTG.splice(userId - 1, 1);
 
-  for (let i = 0; i < localSTG.length; i++) {
-    localSTG[i].id = i + 1;
-    const usuarioEnLocalSTG = localSTG[i];
+    for (let i = 0; i < localSTG.length; i++) {
+      localSTG[i].id = i + 1;
+      const usuarioEnLocalSTG = localSTG[i];
 
-    arrayAfterDelete.push(usuarioEnLocalSTG);
-  }
-  let localAfterDelete = localStorage.setItem(
-    "users",
-    JSON.stringify(arrayAfterDelete)
-  );
-  location.href = "../html/admin.html";
+      arrayAfterDelete.push(usuarioEnLocalSTG);
+    }
+    let localAfterDelete = localStorage.setItem(
+      "users",
+      JSON.stringify(arrayAfterDelete)
+    );
+    localSTGAlert = localStorage.setItem(
+      "idAlertDelete",
+      JSON.stringify({ id: userId })
+    );
+    location.href = "../html/admin.html";
+  }, 300);
+};
+
+const deleteAlert = () => {
+  setTimeout(function () {
+    if (localSTGDelete.id !== 0) {
+      Swal.fire({
+        icon: "success",
+
+        text: "El usuario ha sido eliminado/rechazado con éxito",
+      });
+      let localDeleteId = localStorage.setItem(
+        "idAlertDelete",
+
+        JSON.stringify({ id: 0 })
+      );
+    } else {
+      [];
+    }
+  }, 600);
 };
 
 const otherInputSelector = () => {
@@ -296,3 +353,5 @@ matriculaModalPatientDelete();
 inactiveIconsDelete();
 otherInputSelector();
 alertCheck();
+deleteAlert();
+alertModify();
