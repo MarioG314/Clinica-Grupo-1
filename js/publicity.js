@@ -6,6 +6,11 @@ let tablePublicitysBody = document.getElementById("table-publicitys-body");
 // Array de Publicidades
 let publicityArray = [];
 
+// Botones del CRUD publicidades
+// let deleteButton = document.getElementById('delete-button');
+
+
+
 // Inputs de formulario CREAR publicidad
 let codeInput = document.getElementById("exampleInputCode1");
 let urlInput = document.getElementById("exampleInputUrl1");
@@ -14,21 +19,23 @@ let descriptionInput = document.getElementById("exampleInputDescripcion1");
 let createPublicityForm = document.getElementById("create-publicity-form");
 
 
-// Eventos 
-loadEventListeners();
-function loadEventListeners(){
+// Eventos cuando el DOM esta cargado
+document.addEventListener('DOMContentLoaded', ()=>{
+    // Imprimir LocalStorage en el DOM
+    printHTML(localSTGPublicity);
+    
+    
+    //Botones de la lista de publicidades 
+    // deleteButton.addEventListener('click', deletePublicity);
+
+    //Boton crear publicidad
+    createPublicityForm.addEventListener("submit", createNewPublicity);
+    
+    // Cambios en el formulario
     codeInput.addEventListener('change', publicityData);
     urlInput.addEventListener('change', publicityData);
     categoryInput.addEventListener('change', publicityData);
     descriptionInput.addEventListener('change', publicityData);
-    
-    // Eventos cuando el DOM esta cargado
-document.addEventListener('DOMContentLoaded', ()=>{
-        
-    //Boton crear publicidad
-    createPublicityForm.addEventListener("submit", createNewPublicity);
-    console.log(publicityArray);
-    printHTML(localSTGPublicity);
 });
 
 
@@ -248,12 +255,14 @@ function createNewPublicity(e){
     // ui.imprimirPublicidades(JSON.parse(localStorage.getItem("publicity")));
 }
 
-function deletePublicity(id){
-    publicityArray = publicityArray.filter(publicidad => publicidad.id !== id);
+function deletePublicity(e){
+    console.log(e.target.getAttribute('id'));
 
-    console.log(publicityArray);
+    // publicityArray = publicityArray.filter(publicidad => publicidad.id !== id);
 
-    // printHTML(publicityArray);
+    // console.log(publicityArray);
+
+    // // printHTML(publicityArray);
     
 
 }
@@ -271,13 +280,15 @@ function syncLocalStorage(){
     // Inyeccion de array de publicidades al LST
     localStorage.setItem("publicity",JSON.stringify(publicityArray));
     
-    }
-    
 }
+    
+
 
 function printHTML(object) {
 
         cleanHTML();
+        
+
         
         object.forEach(publicity => {
             const { code, url, category, description, id } = publicity;
@@ -295,7 +306,7 @@ function printHTML(object) {
                     </button>
                     
                     <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop10" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="staticBackdrop${id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content modal-content-img-publicity">
                     
@@ -315,12 +326,12 @@ function printHTML(object) {
                     <td class="text-center align-middle">
                     <div class="d-flex justify-content-center ">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick = deletePublicity(${id})>
+                    <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                     <i class=" fa-solid  fa-trash-can  admin-icon-table "></i>
                     </button>
                     
                     <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+                    <div class="modal fade" id="staticBackdrop1${id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
@@ -333,7 +344,7 @@ function printHTML(object) {
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="deletePublicity(${id})">Confirmar</button>
+                    <button type="button" class="btn btn-primary" id="delete-button" >Confirmar</button>
                     </div>
                     </div>
                     </div>
@@ -399,8 +410,9 @@ function printHTML(object) {
 
             // Agregar las publicidades al contenedor de la lista
             tablePublicitysBody.appendChild(divPublicitys);
-
         });
+        
+        syncLocalStorage();
 
         
 }
@@ -421,13 +433,14 @@ function destacarPublicidad(id) {
       if (publicidad.id === id) {
         publicidad.destacado = true;
         arrayPublicidad.push(publicidad);
-        console.log(publicidad);
+        console.log('El array destacado es: ',publicidad);
       } else {
         arrayPublicidad.push(publicidad);
       }
     }
-    localStorage.setItem("publicity", JSON.stringify(arrayPublicidad));
-    console.log("arrayPublicidad", arrayPublicidad);
+    // localStorage.setItem("publicity", JSON.stringify(arrayPublicidad));
+    // console.log("arrayPublicidad", arrayPublicidad);
+    syncLocalStorage();
 }
 
 
