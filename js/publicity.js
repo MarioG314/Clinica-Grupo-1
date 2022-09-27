@@ -26,7 +26,7 @@ function cargarEventListeners(){
         publicityArray = JSON.parse(localStorage.getItem("publicity")) || [];
         
         
-        console.log('Desde DOMContentLoaded',publicityArray);
+        
         
         
         
@@ -179,10 +179,12 @@ class UI{
 
 // Clase para manejar las publicidades
 class Publicidades{
-    constructor() {
-        this.publicidades = [];
+    constructor(publicidades) {
+        this.publicidades = publicidades;
+        
     }
     
+
     //Metodo para agregar Publicidad
     agregarPublicidad(publicidad){
         // Agrega la publicidad actual al arreglo de publicidades
@@ -193,16 +195,16 @@ class Publicidades{
     eliminarPublicidad(id){
         this.publicidades = this.publicidades.filter(publicidad => publicidad.id !== id);
     
-        ui.imprimirPublicidades();
+        ui.imprimirPublicidades(administrarPublicidades);
     }
 
 }
 
 // Instanciar clases para trabajarlas
 const ui = new UI();
-const administrarPublicidades = new Publicidades();
-
-
+const administrarPublicidades = new Publicidades(publicityArray);
+console.log(ui )
+console.log(administrarPublicidades);
 
 const newObject = {
     codigo: '',
@@ -252,7 +254,7 @@ function nuevaPublicidad(e){
     formCrear.reset();
     
     //Mostrar el HTML de las publicidades creadas
-    ui.imprimirPublicidades(administrarPublicidades);
+    ui.imprimirPublicidades(JSON.parse(localStorage.getItem("publicity")));
 }
 
 function eliminarPublicidad(id){
