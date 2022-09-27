@@ -1,6 +1,8 @@
 let localSTG = JSON.parse(localStorage.getItem("users")) || [];
 let localSTGAdmin = JSON.parse(localStorage.getItem("admin"));
-
+let localSTGCheck = JSON.parse(localStorage.getItem("idAlertCheck")) || {
+  id: 0,
+};
 let tableAdminBody = document.getElementById("table-admin-body");
 let tableUsersBody = document.getElementById("table-users-body");
 
@@ -86,9 +88,9 @@ const RenderAdminUsers = () => {
             
                    <div class="mb-2">
               <h6 class="fs-6 ">Rol</h6>
-            <select class="form-select mb-3"   id="rolChange${users.id}">
+            <select class="form-select mb-3"   id="rolChange${users.id}"   >
   <option id="inputSelector${users.id}" value="${users.role} " class="fs-6">${users.role}</option>
-  <option  id="otherInputSelector${users.id}" class="fs-6"></option>
+  <option  id="otherInputSelector${users.id}"  class="fs-6"></option>
   
 </select>
             </div>
@@ -160,8 +162,28 @@ const enableUser = (checkModalId) => {
       "users",
       JSON.stringify(localSTG)
     );
+    localSTGAlert = localStorage.setItem(
+      "idAlertCheck",
+      JSON.stringify({ id: checkModalId })
+    );
 
     location.href = "../html/admin.html";
+  }, 300);
+};
+
+const alertCheck = () => {
+  setTimeout(function () {
+    if (localSTGCheck.id !== 0) {
+      alert("El usuario ha sido habilitado con éxito");
+
+      localDeleteIdCheck = localStorage.setItem(
+        "idAlertCheck",
+
+        JSON.stringify({ id: 0 })
+      );
+    } else {
+      [];
+    }
   }, 300);
 };
 
@@ -265,6 +287,7 @@ const inactiveIconsDelete = () => {
     deleteIconTrash.style.display = "none";
   });
 };
+
 matriculaLocalPatientDelete();
 RenderAdminFrancisco();
 RenderAdminUsers();
@@ -272,3 +295,4 @@ usersActiveDeleteIconCheck();
 matriculaModalPatientDelete();
 inactiveIconsDelete();
 otherInputSelector();
+alertCheck();
