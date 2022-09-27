@@ -233,7 +233,7 @@ function createNewPublicity(e){
     console.log(publicityArray);
     // administrarPublicidades.agregarPublicidad({...newObject});
 
-    syncLocalStorage(publicityArray);
+    syncLocalStorage();
     // sincronizarLocalStorage(administrarPublicidades);
 
     
@@ -260,17 +260,19 @@ function restartObject(){
     newObject.description = '';
 }
 
-function syncLocalStorage(object){
+function syncLocalStorage(){
     // Inyeccion de array de publicidades al LST
-    localSTGPublicity.put("publicity",JSON.stringify(object));
+    localSTGPublicity.setItem("publicity",JSON.stringify(publicityArray));
+    
+    }
     
 }
 
-function printHTML(publicitys) {
+function printHTML() {
 
         cleanHTML();
         
-        publicitys.forEach(publicity => {
+        publicityArray.forEach(publicity => {
             const { code, url, category, description, id } = publicity;
 
             const divPublicitys = document.createElement('tr');
@@ -393,10 +395,10 @@ function printHTML(publicitys) {
 
         });
 
-        syncLocalStorage(publicityArray);
-    }
-
+        syncLocalStorage();
 }
+
+
 
 
 
