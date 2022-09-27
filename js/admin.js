@@ -182,7 +182,8 @@ const alertCheck = () => {
     if (localSTGCheck.id !== 0) {
       Swal.fire({
         icon: "success",
-
+        confirmButtonColor: "#0b50af",
+        background: "#F1FAFB",
         text: "El usuario ha sido habilitado con éxito",
       });
       let localCheck = localStorage.setItem(
@@ -234,7 +235,8 @@ const alertModify = () => {
     if (localSTGModify.id !== 0) {
       Swal.fire({
         icon: "success",
-
+        confirmButtonColor: "#0b50af",
+        background: "#F1FAFB",
         text: "El usuario ha sido modificado con éxito",
       });
       let localModify = localStorage.setItem(
@@ -297,7 +299,8 @@ const deleteAlert = () => {
     if (localSTGDelete.id !== 0) {
       Swal.fire({
         icon: "success",
-
+        confirmButtonColor: "#0b50af",
+        background: "#F1FAFB",
         text: "El usuario ha sido eliminado/rechazado con éxito",
       });
       let localDeleteId = localStorage.setItem(
