@@ -12,7 +12,7 @@
   }
 })();
 
-const logout = () => {
-  localStorage.removeItem("userId");
-  window.location.href = "../html/login.html";
-};
+function logout() {
+  localStorage.removeItem('userId')
+  window.location.href = "../html/login.html"
+} 
