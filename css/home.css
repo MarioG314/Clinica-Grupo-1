@@ -58,10 +58,10 @@ body{
 }
 
 .section{
-    background:#47c1c9;
+    background:#91dadf;
 }
 .section p{
-    color: #1505c2;
+    color: #2a56e8;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -72,7 +72,7 @@ body{
 }
 .bg-footer{
     background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,132,157,1) 100%);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(7, 7, 105) 35%, rgb(1, 125, 156) 100%);
 }
 
 .card-one{

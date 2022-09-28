@@ -255,7 +255,7 @@ function cleanHTML(){
 }
 
 function esAmarillo(){
-    console.log(publicity.destacado)
+    
 }
 
 function destacarPublicidad(id) {
