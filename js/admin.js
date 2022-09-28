@@ -235,32 +235,66 @@ const changeAdmin = (changeAdminId) => {
   setTimeout(function () {
     if (roleChange === "Paciente") {
       if (nameChange === "" || lastNameChange === "") {
-        alert("Debe completar todos los campos que corresponden al Paciente");
+        Swal.fire({
+          icon: "error",
+          confirmButtonColor: "#0b50af",
+          background: "#F1FAFB",
+          text: "Debe completar todos los campos que corresponden al paciente",
+        });
       } else {
         if (matriculaChange !== "") {
-          alert("El paciente no debe llevar matricula");
+          Swal.fire({
+            icon: "error",
+            confirmButtonColor: "#0b50af",
+            background: "#F1FAFB",
+            text: "El paciente no debe llevar matricula",
+          });
         } else {
           if (
             nameChange.toUpperCase() ===
               localSTG[changeAdminId - 1].firstName.toUpperCase() &&
             lastNameChange.toUpperCase() ===
-              localSTG[changeAdminId - 1].lastName.toUpperCase()
+              localSTG[changeAdminId - 1].lastName.toUpperCase() &&
+            roleChange === localSTG[changeAdminId - 1].role
           ) {
-            alert("Debe realizar algun cambio");
+            Swal.fire({
+              icon: "error",
+              confirmButtonColor: "#0b50af",
+              background: "#F1FAFB",
+              text: "Debe realizar algun cambio",
+            });
           } else {
             if (changeFilter(nameChange) > 0) {
-              alert("El nombre no debe llevar números");
+              Swal.fire({
+                icon: "error",
+                confirmButtonColor: "#0b50af",
+                background: "#F1FAFB",
+                text: "El nombre no debe llevar numeros",
+              });
             } else {
               if (changeFilter(lastNameChange) > 0) {
-                alert("El apellido no debe llevar numeros");
+                Swal.fire({
+                  icon: "error",
+                  confirmButtonColor: "#0b50af",
+                  background: "#F1FAFB",
+                  text: "El apellido no debe llevar numeros",
+                });
               } else {
                 if (nameChange.length < 3 || lastNameChange.length < 3) {
-                  alert("El nombre/apellido deben tener más de 2 caracteres");
+                  Swal.fire({
+                    icon: "error",
+                    confirmButtonColor: "#0b50af",
+                    background: "#F1FAFB",
+                    text: "El nombre/apellido deben tener más de 2 caracteres",
+                  });
                 } else {
                   if (nameChange.length > 25 || lastNameChange.length > 25) {
-                    alert(
-                      "El nombre/apellido deben tener menos de 26 caracteres"
-                    );
+                    Swal.fire({
+                      icon: "error",
+                      confirmButtonColor: "#0b50af",
+                      background: "#F1FAFB",
+                      text: "El nombre/apellido deben tener menos de 26 caracteres",
+                    });
                   } else {
                     const adminChangePaciente = localSTG.filter(
                       (users) => users.id === changeAdminId
@@ -293,7 +327,12 @@ const changeAdmin = (changeAdminId) => {
         lastNameChange === "" ||
         matriculaChange === ""
       ) {
-        alert("Debe completar todos los campos que corresponden al doctor");
+        Swal.fire({
+          icon: "error",
+          confirmButtonColor: "#0b50af",
+          background: "#F1FAFB",
+          text: "Debe completar todos los campos que corresponden al Doctor",
+        });
       } else {
         if (
           matriculaChange === localSTG[changeAdminId - 1].matricula &&
@@ -302,42 +341,78 @@ const changeAdmin = (changeAdminId) => {
           lastNameChange.toUpperCase() ===
             localSTG[changeAdminId - 1].lastName.toUpperCase()
         ) {
-          alert("Debe realizar algun cambio");
+          Swal.fire({
+            icon: "error",
+            confirmButtonColor: "#0b50af",
+            background: "#F1FAFB",
+            text: "Debe realizar algun cambio",
+          });
         } else {
           if (
             matriculaChange !== localSTG[changeAdminId - 1].matricula &&
             matriculaFilter.length === 1
           ) {
-            alert("La matricula es un dato único. Esta matricula ya existe");
+            Swal.fire({
+              icon: "error",
+              confirmButtonColor: "#0b50af",
+              background: "#F1FAFB",
+              text: "La matricula es un dato unico. Esta matricula ya existe",
+            });
           } else {
             if (
               Number.isNaN(parseInt(matriculaChange)) === true ||
               matriculaChange.length !==
                 parseInt(matriculaChange).toString().length
             ) {
-              alert("La matricula solo debe llevar números");
+              Swal.fire({
+                icon: "error",
+                confirmButtonColor: "#0b50af",
+                background: "#F1FAFB",
+                text: "La matricula solo debe llevar numeros",
+              });
             } else {
               if (matriculaChange.length !== 5) {
-                alert("La matricula debe llevar 5 dígitos");
+                Swal.fire({
+                  icon: "error",
+                  confirmButtonColor: "#0b50af",
+                  background: "#F1FAFB",
+                  text: "La matricula debe llevar 5 digitos",
+                });
               } else {
                 if (changeFilter(nameChange) > 0) {
-                  alert("El nombre no debe llevar números");
+                  Swal.fire({
+                    icon: "error",
+                    confirmButtonColor: "#0b50af",
+                    background: "#F1FAFB",
+                    text: "El nombre no debe llevar numeros",
+                  });
                 } else {
                   if (changeFilter(lastNameChange) > 0) {
-                    alert("El apellido no debe llevar numeros");
+                    Swal.fire({
+                      icon: "error",
+                      confirmButtonColor: "#0b50af",
+                      background: "#F1FAFB",
+                      text: "El apellido no debe llevar numeros",
+                    });
                   } else {
                     if (nameChange.length < 3 || lastNameChange.length < 3) {
-                      alert(
-                        "El nombre/apellido deben tener más de 2 caracteres"
-                      );
+                      Swal.fire({
+                        icon: "error",
+                        confirmButtonColor: "#0b50af",
+                        background: "#F1FAFB",
+                        text: "El nombre/apellido deben tener más de 2 caracteres",
+                      });
                     } else {
                       if (
                         nameChange.length > 25 ||
                         lastNameChange.length > 25
                       ) {
-                        alert(
-                          "El nombre/apellido deben tener menos de 26 caracteres"
-                        );
+                        Swal.fire({
+                          icon: "error",
+                          confirmButtonColor: "#0b50af",
+                          background: "#F1FAFB",
+                          text: "El nombre/apellido deben tener menos de 26 caracteres",
+                        });
                       } else {
                         const adminChangeDoctor = localSTG.filter(
                           (users) => users.id === changeAdminId
