@@ -98,15 +98,18 @@
                           <form class="mb-5" action="https://formspree.io/f/xqkjejdo" method="post">
                               <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label">Nombre y apellido</label>
-                                  <input type="Nombreyapellido" class="form-control" name="exampleFormControlInput1"id="exampleFormControlInput1" placeholder="Maria Bernardita" required>
+                                  <input required
+       minlength="5" maxlength="40" type="Nombreyapellido" class="form-control" name="exampleFormControlInput1"id="exampleFormControlInput1" placeholder="Maria Bernardita" required>
                               </div>
                               <div class="mb-3">
                                   <label for="Email" class="form-label">Email</label>
-                                  <input type="name" name="nombre" placeholder="mariabernardita.15@gmail.com" class="form-control"id="nombre">
+                                  <input required
+       minlength="5" maxlength="20" type="email" name="nombre" placeholder="mariabernardita.15@gmail.com" class="form-control"id="nombre">
                               </div>
                               <div class="mb-3">
                                   <label for="exampleFormControlTextarea1" class="form-label">Deja tu consulta</label>
-                                  <textarea class="form-control mh-100" maxlength="100" name="exampleFormControlTextarea1"id="exampleFormControlTextarea1" rows="3"></textarea>
+                                  <textarea required
+       minlength="10" maxlength="100" class="form-control mh-100" maxlength="100" name="exampleFormControlTextarea1"id="exampleFormControlTextarea1" rows="3"></textarea>
                               </div>
                               <button type="submit" class="btn btn-primary">Enviar</button>
                           </form>
