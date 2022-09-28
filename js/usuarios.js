@@ -12,21 +12,23 @@ const renderServicesAndDoctors = () => {
     service = services[i];
     doctors = filterDoctors(service.id);
     results.insertAdjacentHTML('beforeend', `
-      <div class="col-12 item" data-keyword="${service.name} ${doctors.map(doc => `${doc.userName} ${doc.lastName}`).join(' ')}">
+      <div class="col-12 item" data-keyword="${service.name} ${doctors.map(doc => `${doc.firstName} ${doc.lastName} ${doc.horarios}`).join(' ')}">
         <p class="display-6">
           ${service.name}
         </p>
+
       </div>
     `);
 
     for(let j = 0; j < doctors.length; j++) {
       doctor = doctors[j];
       results.insertAdjacentHTML('beforeend', `
-        <div class="col-4 item" data-keyword="${service.name} ${doctor.userName} ${doctor.lastName}">
+        <div class="col-4 item" data-keyword="${service.name} ${doctor.firstName} ${doctor.lastName} ${doctor.horarios}">
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">${doctor.userName} ${doctor.lastName}</h5>
-              <p class="card-text text-muted">Matrícula profesional: ${doctor.professionalRegistration}</p>
+           <div class="card-body">
+              <h5 class="pb-2 card-title">${doctor.firstName} ${doctor.lastName}</h5>
+              <p class="card-text text-muted">Matrícula profesional: ${doctor.matricula}</p>
+               <div class="pb-2">horarios: ${doctor.horarios} </div>
               <a href="/html/pedirTurno.html?doctorId=${doctor.id}" class="btn btn-outline-primary">Pedir turno</a>
             </div>
           </div>
