@@ -1,6 +1,5 @@
-
-const searchInput = document.getElementById('search');
-const results = document.getElementById('results');
+const searchInput = document.getElementById("search");
+const results = document.getElementById("results");
 
 const renderServicesAndDoctors = () => {
   const services = fetchServices();
@@ -8,22 +7,29 @@ const renderServicesAndDoctors = () => {
   let doctors;
   let doctor;
 
-  for(let i = 0; i < services.length; i++) {
+  for (let i = 0; i < services.length; i++) {
     service = services[i];
     doctors = filterDoctors(service.id);
-    results.insertAdjacentHTML('beforeend', `
-      <div class="col-12 item" data-keyword="${service.name} ${doctors.map(doc => `${doc.firstName} ${doc.lastName} ${doc.horarios}`).join(' ')}">
+    results.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="col-12 item" data-keyword="${service.name} ${doctors
+        .map((doc) => `${doc.firstName} ${doc.lastName} ${doc.horarios}`)
+        .join(" ")}">
         <p class="display-6">
           ${service.name}
         </p>
 
       </div>
-    `);
+    `
+    );
 
-    for(let j = 0; j < doctors.length; j++) {
+    for (let j = 0; j < doctors.length; j++) {
       doctor = doctors[j];
-      results.insertAdjacentHTML('beforeend', `
-        <div class="col-4 item" data-keyword="${service.name} ${doctor.firstName} ${doctor.lastName} ${doctor.horarios}">
+      results.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0 item" data-keyword="${service.name} ${doctor.firstName} ${doctor.lastName} ${doctor.horarios}">
           <div class="card">
            <div class="card-body">
               <h5 class="pb-2 card-title">${doctor.firstName} ${doctor.lastName}</h5>
@@ -33,26 +39,34 @@ const renderServicesAndDoctors = () => {
             </div>
           </div>
         </div>
-      `);
+      `
+      );
     }
   }
-}
+};
 
 const filterServicesAndDoctors = (query) => {
-  const q = (query || '').toLowerCase();
-  Array.from(results.getElementsByClassName('item')).forEach(item => {
-    if ((q === '' || item.dataset.keyword.toLowerCase().includes(q)) && item.classList.contains('d-none')) {
-      item.classList.remove('d-none');
-    } else if ((q !== '' && !item.dataset.keyword.toLowerCase().includes(q)) && !item.classList.contains('d-none')) {
-      item.classList.add('d-none');
+  const q = (query || "").toLowerCase();
+  Array.from(results.getElementsByClassName("item")).forEach((item) => {
+    if (
+      (q === "" || item.dataset.keyword.toLowerCase().includes(q)) &&
+      item.classList.contains("d-none")
+    ) {
+      item.classList.remove("d-none");
+    } else if (
+      q !== "" &&
+      !item.dataset.keyword.toLowerCase().includes(q) &&
+      !item.classList.contains("d-none")
+    ) {
+      item.classList.add("d-none");
     }
   });
-}
+};
 
-searchInput.addEventListener('input', function(evt) {
+searchInput.addEventListener("input", function (evt) {
   filterServicesAndDoctors(evt.target.value);
 });
 
-window.addEventListener('load', function() {
+window.addEventListener("load", function () {
   renderServicesAndDoctors();
 });
