@@ -9,10 +9,11 @@ function log() {
     (user) =>
       user.email === email && user.pass === pass && user.condition === "active"
   );
-
+  console.log(userLoged);
   if (userLoged) {
     localStorage.setItem("userId", JSON.stringify(userLoged.id));
     setTimeout(() => {
+      console.log(userLoged);
       switch (userLoged.role) {
         case "Admin":
           location.href = "../html/admin.html";
@@ -27,5 +28,7 @@ function log() {
           location.href = "../html/login.html";
       }
     }, 2000);
+  } else {
+    alert("no se pudo logear");
   }
 }

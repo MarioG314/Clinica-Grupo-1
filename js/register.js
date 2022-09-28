@@ -1,3 +1,9 @@
+const validarEmail = (email) => {
+  return new RegExp(
+    /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+  ).test(email);
+};
+
 function register() {
   let firstName = document.getElementById("firstName").value;
   let lastName = document.getElementById("lastName").value;
@@ -7,19 +13,23 @@ function register() {
 
   let localSTG = JSON.parse(localStorage.getItem("users")) || [];
 
+  let errors = [];
+
   const array = [];
 
-  if (
-    firstName === "" ||
-    lastName === "" ||
-    email === "" ||
-    pass === "" ||
-    checkPass === ""
-  ) {
+  if (!validarEmail(email)) {
+    errors.push("Email no valido");
+  }
+  if (firstName === "") {
+    errors.push("Introducir nombre");
+  }
+  
+
+  if (errors.length > 0) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "¡Formulario incompleto!",
+      text: errors.join(", "),
     });
   } else {
     for (let i = 0; i < localSTG.length; i++) {
