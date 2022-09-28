@@ -19,8 +19,7 @@ function register() {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Formulario incompleto!",
-      footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
+      text: "¡Formulario incompleto!",
     });
   } else {
     for (let i = 0; i < localSTG.length; i++) {
@@ -43,28 +42,33 @@ function register() {
           role: "Paciente",
           condition: "inactive",
         });
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Registro realizado con exito!",
-          footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
-        });
         localStorage.setItem("users", JSON.stringify(array));
+        Swal.fire({
+          icon: "success",
+          title: "¡Solicitud de regitro enviada con éxito!",
+          text: "Espere a que el administrador active su cuenta para poder ingresar",
+          allowOutsideClick: false,
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "¡Ok!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "../html/login.html";
+          }
+        });
       } else {
         Swal.fire({
           icon: "error",
-          title: "Oops...",
-          text: "Las contraseñas no coinciden!",
-          footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
+          title: "¡Las contraseñas no coinciden!",
+          text: "Revisa tu contraseña",
         });
       }
     }
     if (userExist.length !== 0) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Ya se encuentra registrado!",
-        footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
+        title: "¡Ya se encuentra registrado!",
+        text: "¿Desea iniciar sesión?",
+        footer: '<a href="../html/login.html">Iniciar sesión</a>',
       });
     }
   }
@@ -93,8 +97,7 @@ function registerDr() {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Formulario incompleto!",
-      footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
+      text: "¡Formulario incompleto!",
     });
   } else {
     for (let i = 0; i < localSTG.length; i++) {
@@ -119,26 +122,31 @@ function registerDr() {
         });
         localStorage.setItem("users", JSON.stringify(array));
         Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Registro realizado con exito!",
-          footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
+          icon: "success",
+          title: "¡Solicitud de regitro enviada con éxito!",
+          text: "Espere a que el administrador active su cuenta para poder ingresar",
+          allowOutsideClick: false,
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "¡Ok!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "../html/login.html";
+          }
         });
       } else {
         Swal.fire({
           icon: "error",
-          title: "Oops...",
-          text: "Las contraseñas no coinciden!",
-          footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
+          title: "¡Las contraseñas no coinciden!",
+          text: "Revisa tu contraseña",
         });
       }
     }
     if (userExist.length !== 0) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Usted ya se encuentra registrado!",
-        footer: '<a href="../html/login.html">¿Desea iniciar sesión?</a>',
+        title: "¡Ya se encuentra registrado!",
+        text: "¿Desea iniciar sesión?",
+        footer: '<a href="../html/login.html">Iniciar sesión</a>',
       });
     }
   }
