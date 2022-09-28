@@ -198,83 +198,171 @@ const alertCheck = () => {
 };
 
 const changeAdmin = (changeAdminId) => {
+  let nameChange = document.getElementById(
+    `firstNameChange${changeAdminId}`
+  ).value;
+
+  let matriculaChange = document.getElementById(
+    `matriculaChange${changeAdminId}`
+  ).value;
+  let lastNameChange = document.getElementById(
+    `lastNameChange${changeAdminId}`
+  ).value;
+  let roleChange = document.getElementById(`rolChange${changeAdminId}`).value;
+
+  let matriculaFilter = localSTG.filter(
+    (usersMatricula) => usersMatricula.matricula === matriculaChange
+  );
+
+  const changeFilter = (name) => {
+    let changeArray = name.split("");
+    let changeArrayFilter = changeArray.filter(
+      (caracteres) =>
+        caracteres === "0" ||
+        caracteres === "1" ||
+        caracteres === "2" ||
+        caracteres === "3" ||
+        caracteres === "4" ||
+        caracteres === "5" ||
+        caracteres === "6" ||
+        caracteres === "7" ||
+        caracteres === "8" ||
+        caracteres === "9"
+    );
+    return changeArrayFilter.length;
+  };
+
   setTimeout(function () {
-    let nameChange = document.getElementById(
-      `firstNameChange${changeAdminId}`
-    ).value;
-
-    let matriculaChange = document.getElementById(
-      `matriculaChange${changeAdminId}`
-    ).value;
-    let lastNameChange = document.getElementById(
-      `lastNameChange${changeAdminId}`
-    ).value;
-    let roleChange = document.getElementById(`rolChange${changeAdminId}`).value;
-
-    console.log(roleChange);
-
-    if (
-      roleChange === "Doctor" &&
-      (nameChange === "" || lastNameChange === "" || matriculaChange === "")
-    ) {
-      alert("Debe completar todos los campos que corresponden al doctor");
-    } else if (
-      roleChange === "Doctor" &&
-      nameChange !== "" &&
-      lastNameChange !== "" &&
-      matriculaChange === ""
-    ) {
-      const adminChangeDoctor = localSTG.filter(
-        (users) => users.id === changeAdminId
-      );
-
-      adminChangeDoctor[0].firstName = nameChange;
-      adminChangeDoctor[0].lastName = lastNameChange;
-      adminChangeDoctor[0].matricula = matriculaChange;
-      adminChangeDoctor[0].role = roleChange;
-
-      let changeLocalTSTGDoctor = localStorage.setItem(
-        "users",
-        JSON.stringify(localSTG)
-      );
-      let localSTGAlert = localStorage.setItem(
-        "idAlertModify",
-        JSON.stringify({ id: changeAdminId })
-      );
-      location.href = "../html/admin.html";
-    } else if (
-      roleChange === "Paciente" &&
-      (nameChange === "" || lastNameChange === "")
-    ) {
-      alert("Debe completar todos los campos que corresponden al Paciente");
-    } else {
-      if (matriculaChange !== "") {
-        alert("El paciente no debe llevar matricula");
+    if (roleChange === "Paciente") {
+      if (nameChange === "" || lastNameChange === "") {
+        alert("Debe completar todos los campos que corresponden al Paciente");
       } else {
-        if (nameChange.length < 3 || lastNameChange.length < 3) {
-          alert("El nombre/apellido deben tener más de 2 caracteres");
+        if (matriculaChange !== "") {
+          alert("El paciente no debe llevar matricula");
         } else {
-          if (nameChange.length > 25 || lastNameChange.length > 25) {
-            alert("El nombre/apellido deben tener menos de 25 caracteres");
+          if (
+            nameChange.toUpperCase() ===
+              localSTG[changeAdminId - 1].firstName.toUpperCase() &&
+            lastNameChange.toUpperCase() ===
+              localSTG[changeAdminId - 1].lastName.toUpperCase()
+          ) {
+            alert("Debe realizar algun cambio");
           } else {
-            const adminChangePaciente = localSTG.filter(
-              (users) => users.id === changeAdminId
-            );
+            if (changeFilter(nameChange) > 0) {
+              alert("El nombre no debe llevar números");
+            } else {
+              if (changeFilter(lastNameChange) > 0) {
+                alert("El apellido no debe llevar numeros");
+              } else {
+                if (nameChange.length < 3 || lastNameChange.length < 3) {
+                  alert("El nombre/apellido deben tener más de 2 caracteres");
+                } else {
+                  if (nameChange.length > 25 || lastNameChange.length > 25) {
+                    alert(
+                      "El nombre/apellido deben tener menos de 26 caracteres"
+                    );
+                  } else {
+                    const adminChangePaciente = localSTG.filter(
+                      (users) => users.id === changeAdminId
+                    );
 
-            adminChangePaciente[0].firstName = nameChange;
-            adminChangePaciente[0].lastName = lastNameChange;
-            adminChangePaciente[0].matricula = matriculaChange;
-            adminChangePaciente[0].role = roleChange;
+                    adminChangePaciente[0].firstName = nameChange;
+                    adminChangePaciente[0].lastName = lastNameChange;
+                    adminChangePaciente[0].matricula = matriculaChange;
+                    adminChangePaciente[0].role = roleChange;
 
-            let changeLocalTSTGPaciente = localStorage.setItem(
-              "users",
-              JSON.stringify(localSTG)
-            );
-            let localSTGAlert = localStorage.setItem(
-              "idAlertModify",
-              JSON.stringify({ id: changeAdminId })
-            );
-            location.href = "../html/admin.html";
+                    let changeLocalTSTGPaciente = localStorage.setItem(
+                      "users",
+                      JSON.stringify(localSTG)
+                    );
+                    let localSTGAlert = localStorage.setItem(
+                      "idAlertModify",
+                      JSON.stringify({ id: changeAdminId })
+                    );
+                    location.href = "../html/admin.html";
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    } else {
+      if (
+        nameChange === "" ||
+        lastNameChange === "" ||
+        matriculaChange === ""
+      ) {
+        alert("Debe completar todos los campos que corresponden al doctor");
+      } else {
+        if (
+          matriculaChange === localSTG[changeAdminId - 1].matricula &&
+          nameChange.toUpperCase() ===
+            localSTG[changeAdminId - 1].firstName.toUpperCase() &&
+          lastNameChange.toUpperCase() ===
+            localSTG[changeAdminId - 1].lastName.toUpperCase()
+        ) {
+          alert("Debe realizar algun cambio");
+        } else {
+          if (
+            matriculaChange !== localSTG[changeAdminId - 1].matricula &&
+            matriculaFilter.length === 1
+          ) {
+            alert("La matricula es un dato único. Esta matricula ya existe");
+          } else {
+            if (
+              Number.isNaN(parseInt(matriculaChange)) === true ||
+              matriculaChange.length !==
+                parseInt(matriculaChange).toString().length
+            ) {
+              alert("La matricula solo debe llevar números");
+            } else {
+              if (matriculaChange.length !== 5) {
+                alert("La matricula debe llevar 5 dígitos");
+              } else {
+                if (changeFilter(nameChange) > 0) {
+                  alert("El nombre no debe llevar números");
+                } else {
+                  if (changeFilter(lastNameChange) > 0) {
+                    alert("El apellido no debe llevar numeros");
+                  } else {
+                    if (nameChange.length < 3 || lastNameChange.length < 3) {
+                      alert(
+                        "El nombre/apellido deben tener más de 2 caracteres"
+                      );
+                    } else {
+                      if (
+                        nameChange.length > 25 ||
+                        lastNameChange.length > 25
+                      ) {
+                        alert(
+                          "El nombre/apellido deben tener menos de 26 caracteres"
+                        );
+                      } else {
+                        const adminChangeDoctor = localSTG.filter(
+                          (users) => users.id === changeAdminId
+                        );
+
+                        adminChangeDoctor[0].firstName = nameChange;
+                        adminChangeDoctor[0].lastName = lastNameChange;
+                        adminChangeDoctor[0].matricula = matriculaChange;
+                        adminChangeDoctor[0].role = roleChange;
+
+                        let changeLocalTSTGDoctor = localStorage.setItem(
+                          "users",
+                          JSON.stringify(localSTG)
+                        );
+                        let localSTGAlert = localStorage.setItem(
+                          "idAlertModify",
+                          JSON.stringify({ id: changeAdminId })
+                        );
+                        location.href = "../html/admin.html";
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -300,27 +388,6 @@ const alertModify = () => {
       [];
     }
   }, 600);
-};
-
-const matriculaModalPatientDelete = () => {
-  let modalChangeUsers = localSTG.filter((users) => users.role === "Paciente");
-  modalChangeUsers.forEach((matriculaDelete) => {
-    let deleteMatriculaInput = document.getElementById(
-      `inputMatricula${matriculaDelete.id}`
-    );
-
-    deleteMatriculaInput.style.display = "none";
-  });
-};
-const matriculaLocalPatientDelete = () => {
-  let localChangeUsers = localSTG.filter((users) => users.role === "Paciente");
-  localChangeUsers.forEach((matriculaDelete) => {
-    matriculaDelete.matricula = "";
-  });
-  localSTGDeleteMatriculaPatient = localStorage.setItem(
-    "users",
-    JSON.stringify(localSTG)
-  );
 };
 
 const deleteUser = (userId) => {
@@ -400,11 +467,9 @@ const inactiveIconsDelete = () => {
   });
 };
 
-// matriculaLocalPatientDelete();
 RenderAdminFrancisco();
 RenderAdminUsers();
 usersActiveDeleteIconCheck();
-// matriculaModalPatientDelete();
 inactiveIconsDelete();
 otherInputSelector();
 alertCheck();
