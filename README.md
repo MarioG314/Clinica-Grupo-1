@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 ## Clinica-Grupo-1
 
-=======
 
 # Proyecto Entregable "Rolling Clínica Grupo-1"
 
@@ -17,7 +15,7 @@ Sitio web integral de una clínica, con funcionalidad de registros, altas, bajas
 - Zarate Maria Bernardita
 - Garcia Mario David
 
-#URL de imagenes para el HERO :
+## URL de imagenes para el HERO :
 1-https://i.postimg.cc/vm3wyrr3/publicidad1.png
 2-https://i.postimg.cc/bNytm86b/publicidad5.jpg
 3-https://i.postimg.cc/3Jqx2Hz3/publicidad2.jpg
@@ -30,4 +28,3 @@ Sitio web integral de una clínica, con funcionalidad de registros, altas, bajas
 
 [Link del deploy.](https://clinica-grupo-1.vercel.app/html/home.html)
 
->>>>>>> 98755c0092ded46cd892c98a148f5fd0fb176b9e
