@@ -17,13 +17,25 @@ function register() {
 
   const array = [];
 
-  if (!validarEmail(email)) {
-    errors.push("Email no valido");
-  }
   if (firstName === "") {
     errors.push("Introducir nombre");
   }
-  
+
+  if (lastName === "") {
+    errors.push("Introducir nombre");
+  }
+
+  if (!validarEmail(email)) {
+    errors.push("Email no valido");
+  }
+
+  if (pass === "") {
+    errors.push("Introducir contraseña");
+  }
+
+  if (checkPass === "") {
+    errors.push("Introducir contraseña");
+  }
 
   if (errors.length > 0) {
     Swal.fire({
