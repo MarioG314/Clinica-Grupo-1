@@ -20,10 +20,22 @@ formConsulta.addEventListener("submit", function (evt) {
 
   if (valid) {
     createItem("consultas", data);
-    alert("Su consulta se realizó con éxito!");
-    window.location.replace("/html/usuarios.html");
+    Swal.fire({
+      icon: "success",
+      confirmButtonColor: "#0b50af",
+      background: "#F1FAFB",
+      text: "Su consulta se realizó con éxito!",
+    });
+    setTimeout(() => {
+      window.location.replace("/html/usuarios.html");
+    }, 2000);
   } else {
-    alert("Por favor, verifique el formulario");
+    Swal.fire({
+      icon: "error",
+      confirmButtonColor: "#0b50af",
+      background: "#F1FAFB",
+      text: "Por favor verifique el formulario",
+    });
   }
 });
 
