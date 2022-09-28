@@ -11,19 +11,9 @@ window.addEventListener("load", function (evt) {
   if (doctors.length === 0) {
     const services = fetchServices();
 
-    for (let i = 0; i < services.length; i++) {
-      for (let j = 0; j < 3; j++) {
-        createItem("users", {
-          firstName: faker.name.firstName(),
-          lastName: faker.name.lastName(),
-          email: faker.internet.email(),
-          role: "Doctor",
-          matricula: faker.random.number(),
-          password: faker.internet.password(),
-          condition: "inactive",
-          serviceId: services[i].id,
-        });
-      }
+    for(let doctor of DOCTORS) {
+      console.log(doctor);
+      createItem('users', doctor);
     }
   }
 });

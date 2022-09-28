@@ -17,8 +17,6 @@
 
   <!--Css-->
 
-  <link rel="stylesheet" href="/css/admin.css">
-  <link rel="stylesheet" href="../css/home.css" />
 
   <!--Fuente-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,95 +24,131 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/7d7ea919ec.js" crossorigin="anonymous"></script>
 </head>
-<body>
-  <header>
-    <nav class="navbar navbar-expand-sm fixed-top nav-bg navbar-inverse">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="../html/home.html">
-          <img src="../img/logo2.jpeg" alt="Logo" class="logo" />
-        </a>
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Menú Nav -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item me-4">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Crear publicidad
-              </button>
-              
-              <!-- Modal -->
-              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header ">
-                      <h5 class="modal-title  " id="staticBackdropLabel">Nueva publicidad</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      
-         <form>
-            <div class="mb-2 mt-4">
-               <label for="exampleInputText1" class="form-label">Código</label>
-               <input type="tel" class="form-control">
-            </div>
-            <div class="mb-2">
-               <label for="exampleInputText1" class="form-label">Imagen/url</label>
-               <input type="url" class="form-control">
-            </div>
-            <div class="mb-2">
-              <label for="exampleInputEmail1" class="form-label">Categoría</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-2">
-              <label for="exampleInputPassword1" class="form-label">Descripción</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-            </div>
-            
-            <div class="text-center">
-            <button type="submit" class="btn btn-primary">Crear</button>
-            </div>
-         </form>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-            </li> 
-            <!-- Fin del Modal-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-            <li class="nav-item me-4">
-              <a class="nav-link" href="../html/home.html">
-                <dt>Salir</dt>
-              </a>
-            </li>
-          </ul>
-          <!-- Fin Menú NaV -->
-        </div>
-      </div>
-    </nav>
-  </header>
+    <!--Css-->
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <!--Bootstrap Css-->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+
+    <!--Fuente-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7d7ea919ec.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>RollingClinic</title>
+  </head>
+  <body class="contact-page">
+    <!--Menu Estatico de la Pagina-->
+    <!--Navbar-->
+      <nav class="navbar navbar-expand-sm fixed-top nav-bg navbar-inverse">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../html/home.html">
+            <img src="../img/logo2.jpeg" alt="Logo" class="logo" />
+          </a>
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Menú Nav -->
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item me-4">
+                <a class="nav-link" href="../html/otroAcerca.html"
+                  ><dt>Nosotros</dt></a
+                >
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="../html/servicios.html"
+                  ><dt>Servicios</dt></a
+                >
+              </li>
+              <li class="nav-item me-4">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="../html/contacto.html"
+                  ><dt>Contacto</dt></a
+                >
+              </li>
+              <li class="nav-item me-4">
+                <a
+                  class="nav-link button"
+                  aria-current="page"
+                  href="../html/login.html"
+                  ><dt>Cerrar Sesion</dt></a
+                >
+              </li>
+            </ul>
+            <!-- Fin Menú NaV -->
+     </nav>
+
   <main>
     <div class="p-3">
       <div class="container">
         <div class="row">
-          <div class="col">
-            <div class="card" id="doctor-details">
+          <div class="col-12 col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <img id="doctorImg" src="" class="card-img-top" alt="" />
+                <h3 class=" text-center pt-3 card-title" id="doctorName"></h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Matricula:</span>
+                  <strong id="doctorMatricula"></strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Horarios:</span>
+                  <strong id="doctorHorarios"></strong>
+                </li>
+                <li id="doctorDescription" class="list-group-item"></li>
+              </ul>
             </div>
           </div>
-          <div class="col">
+          <div class="col-12 col-lg-6">
             <div class="card">
+              <H2 class="mb-2 bg-primary text-center text-light p-4">Turnos</H2>
               <form id="formConsulta">
                 <div class="card-body">
-                  <textarea name="query" class="form-control" placeholder="Dejanos tu consulta" rows="10"></textarea>
+                  <textarea name="query" class="form-control" placeholder="Motivo de consulta" rows="10"></textarea>
                   <input type="hidden" name="doctorId" id="doctorId-input" />
                 </div>
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">
-                    Enviar consulta!
+                <div class="card-footer mt-auto d-flex">
+                  <button type="submit" class="btn btn-primary ">
+                    Solicitar turno
                   </button>
                 </div>
               </form>
@@ -173,3 +207,6 @@
   <script src="../js/pedirTurno.js"></script>
 </body>
 </html>
+
+
+<p></p>

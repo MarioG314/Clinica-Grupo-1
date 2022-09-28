@@ -7,7 +7,8 @@ formConsulta.addEventListener('submit', function(evt) {
   evt.preventDefault();
   const formData = new FormData(evt.target);
   const data = {
-    userId: 287
+    userId: 287,
+    createdAt: Date.now()
     // FIXME userId: currentUser.id
   };
   let valid = true;
@@ -21,7 +22,7 @@ formConsulta.addEventListener('submit', function(evt) {
 
   if (valid) {
     createItem('consultas', data);
-    alert('Felicidades su consulta se realizó con éxito!');
+    alert('Su consulta se realizó con éxito!');
     window.location.replace('/html/usuarios.html');
   } else {
     alert('Por favor, verifique el formulario');
@@ -34,11 +35,10 @@ window.addEventListener('load', function() {
   const doctor = findItem('users', doctorId);
   if (doctor) {
     document.getElementById('doctorId-input').value = doctor.id;
-    doctorDetails.innerHTML = `
-      <img src="/img/doctors/${doctor.id}.jpeg" class="card-img-top" alt="${doctor.userName} ${doctor.lastName}" />
-      <div class="card-body">
-        <h5 class="card-title">${doctor.userName} ${doctor.lastName}</div>
-      </div>
-    `;
+    document.getElementById('doctorImg').src = doctor.photo;
+    document.getElementById('doctorName').innerHTML = `${doctor.firstName} ${doctor.lastName}`;
+    document.getElementById('doctorMatricula').innerHTML = doctor.matricula;
+    document.getElementById('doctorHorarios').innerHTML = doctor.horarios;
+    document.getElementById('doctorDescription').innerHTML = doctor.description;
   }
 });
