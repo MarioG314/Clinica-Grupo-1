@@ -143,9 +143,10 @@
               <H2 class="mb-2 bg-primary text-center text-light p-4">Turnos</H2>
               <form id="formConsulta">
                 <div class="card-body">
-                  <textarea name="query" class="form-control" placeholder="Motivo de consulta" rows="10"></textarea>
-                  <input type="hidden" required
-       minlength="10" maxlength="100"  name="doctorId" id="doctorId-input" />
+                  <textarea required
+       minlength="10" maxlength="100" name="query" class="form-control" placeholder="Motivo de consulta" rows="10"></textarea>
+                  <input type="hidden" 
+        name="doctorId" id="doctorId-input" />
                 </div>
                 <div class="card-footer mt-auto d-flex">
                   <button type="submit" class="btn btn-primary ">
