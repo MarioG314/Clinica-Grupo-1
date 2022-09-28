@@ -74,10 +74,6 @@ body{
     background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,132,157,1) 100%);
 }
-.map{
-width: 80%;
-border: 0;
-}
 
 .card-one{
     background-color: #c7c8c8;

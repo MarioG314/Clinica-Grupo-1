@@ -258,15 +258,9 @@ function createNewPublicity(e){
 }
 
 function deletePublicity(id){
-    console.log(id);
     publicityArray = publicityArray.filter(publicity => publicity.id !== String(id));
-    
-    console.log(publicityArray);
     syncLocalStorage();
-
-    printHTML()
-
-
+    printHTML();
 }
 
 
@@ -283,7 +277,6 @@ function syncLocalStorage(){
     localStorage.setItem("publicity",JSON.stringify(publicityArray));
     
 }
-    
 
 // Imprimir array de publicidades en el DOM
 function printHTML() {
@@ -291,8 +284,7 @@ function printHTML() {
         // Limpiar DOM para evitar repeticion
         cleanHTML();
         
-
-        
+        //Scripting de cada publicidad
         publicityArray.forEach(publicity => {
             const { code, url, category, description, id } = publicity;
 
@@ -324,7 +316,6 @@ function printHTML() {
                     </td>
                     <td class="text-center align-middle">${category}</td>
                     <td class="text-center align-middle" >${description}</td>
-                  
                     <!-- comienzo de los 3 botones-->
                     <td class="text-center align-middle">
                     <div class="d-flex justify-content-center ">
@@ -339,7 +330,7 @@ function printHTML() {
                     <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel${id}">Eliminar publicidad</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar publicidad</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body h4">
@@ -370,46 +361,46 @@ function printHTML() {
                     <div class="modal-body">
                     ...
                     </div>
-                  <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Understood</button>
-                  </div>
-                  </div>
-                  </div>
-                  </div><!-- fin boton editar-->
-                  
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-light btn-table-modal-width " data-bs-toggle="modal"
-                  data-bs-target="#exampleModal3${id}">
-                  <i id="" class="fa-solid fa-star admin-icon-table text-warning"></i>
-                  </button>
-                  
-                  <!-- Modal -->
-                  <div class="modal fade   " id="exampleModal3${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog ">
-                  <div class="modal-content">
-                  <div class="modal-header admin-modal-header">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                  </button>
-                  </div>
-                  
-                  <div class="modal-body d-flex justify-content-center admin-modal-body">
-                  
-                  <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
-                  
-                  </div>
-                  
-                  <div class="modal-footer d-flex justify-content-center admin-modal-footer">
-                  <button type="button" id="agree" class="btn btn-primary" onclick="destacarPublicidad(${id})" data-bs-dismiss="modal">Sí</button>
-                  <button type="button" id="disclaim" class="btn btn-danger">No</button>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  </td>
-                  </tr>
-                  `;
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+                </div>
+                </div>
+                </div><!-- fin boton editar-->
+                
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-light btn-table-modal-width " data-bs-toggle="modal"
+                data-bs-target="#exampleModal3${id}">
+                <i id="" class="fa-solid fa-star admin-icon-table text-warning"></i>
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade   " id="exampleModal3${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                <div class="modal-header admin-modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+                </div>
+                
+                <div class="modal-body d-flex justify-content-center admin-modal-body">
+                
+                <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
+                
+                </div>
+                
+                <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+                <button type="button" id="agree" class="btn btn-primary" onclick="destacarPublicidad(${id})" data-bs-dismiss="modal">Sí</button>
+                <button type="button" id="disclaim" class="btn btn-danger">No</button>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </td>
+                </tr>
+                `;
 
             // Agregar las publicidades al contenedor de la lista
             tablePublicitysBody.appendChild(divPublicitys);
@@ -432,14 +423,14 @@ function destacarPublicidad(id) {
     let publicidades = JSON.parse(localStorage.getItem("publicity")) || [];
     const arrayPublicidad = [];
     for (let i = 0; i < publicidades.length; i++) {
-      const publicidad = publicidades[i];
-      if (publicidad.id === id) {
+    const publicidad = publicidades[i];
+    if (publicidad.id === id) {
         publicidad.destacado = true;
         arrayPublicidad.push(publicidad);
         console.log('El array destacado es: ',publicidad);
-      } else {
+    } else {
         arrayPublicidad.push(publicidad);
-      }
+    }
     }
     // localStorage.setItem("publicity", JSON.stringify(arrayPublicidad));
     // console.log("arrayPublicidad", arrayPublicidad);
