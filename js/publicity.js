@@ -242,7 +242,7 @@ function printHTML() {
             tablePublicitysBody.appendChild(divPublicitys);
             console.log(publicity.destacado)
         });
-        esAmarillo();
+        
 
         syncLocalStorage();
 
@@ -254,9 +254,7 @@ function cleanHTML(){
     }
 }
 
-function esAmarillo(){
-    
-}
+
 
 function destacarPublicidad(id) {
     console.log(id);
