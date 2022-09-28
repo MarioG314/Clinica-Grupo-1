@@ -216,6 +216,7 @@ const newObject = {
 function publicityData(e){
     newObject[e.target.name] = e.target.value;
     newObject.id = codeInput.value;
+    newObject.destacado = false;
     // console.log(newObject);
     
 }
@@ -372,7 +373,7 @@ function printHTML() {
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-light btn-table-modal-width " data-bs-toggle="modal"
                 data-bs-target="#exampleModal3${id}">
-                <i id="" class="fa-solid fa-star admin-icon-table text-warning"></i>
+                <i class="fa-solid fa-star admin-icon-table star${id}"></i>
                 </button>
                 
                 <!-- Modal -->
@@ -421,20 +422,23 @@ function cleanHTML(){
 function destacarPublicidad(id) {
     console.log(id);
     let publicidades = JSON.parse(localStorage.getItem("publicity")) || [];
-    const arrayPublicidad = [];
+    let publicityArrayStar = [];
+    let starId = document.querySelector(`.star${id}`);
+    
     for (let i = 0; i < publicidades.length; i++) {
     const publicidad = publicidades[i];
-    if (publicidad.id === id) {
+    if (publicidad.id === String(id)) {
         publicidad.destacado = true;
-        arrayPublicidad.push(publicidad);
-        console.log('El array destacado es: ',publicidad);
+        starId.classList.toggle('text-warning');
+        publicityArrayStar.push(publicidad);
+        console.log('Se agrego la estrella: ',publicityArrayStar);
     } else {
-        arrayPublicidad.push(publicidad);
+        publicityArrayStar.push(publicidad);
     }
     }
-    // localStorage.setItem("publicity", JSON.stringify(arrayPublicidad));
-    // console.log("arrayPublicidad", arrayPublicidad);
-    syncLocalStorage();
+    localStorage.setItem("publicity", JSON.stringify(publicityArrayStar));
+    console.log("arrayPublicidad", publicityArrayStar);
+    // syncLocalStorage();
 }
 
 
