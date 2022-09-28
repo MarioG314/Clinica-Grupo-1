@@ -81,15 +81,18 @@ const RenderAdminUsers = () => {
                               <form>
             <div class="mb-2 mt-3">
                <label for="firstNameChange${users.id}" class="form-label fs-6">Nombre</label>
-               <input type="text" class="form-control" id="firstNameChange${users.id}" value = ${users.firstName}>
+               <input required
+       minlength="3" maxlength="25" type="text" class="form-control" id="firstNameChange${users.id}" value = ${users.firstName}>
             </div>
             <div class="mb-2">
                <label for="lastNameChange${users.id}" class="form-label fs-6">Apellido</label>
-               <input type="text" class="form-control" id="lastNameChange${users.id}" value = ${users.lastName}>
+               <input required
+       minlength="3" maxlength="25" type="text" class="form-control" id="lastNameChange${users.id}" value = ${users.lastName}>
             </div>
             <div class="mb-2" id="inputMatricula${users.id}">
                <label for="matriculaChange${users.id}" class="form-label fs-6">Matrícula</label>
-               <input type="text" class="form-control" id="matriculaChange${users.id}" value = ${users.matricula}>
+               <input required
+       minlength="3" maxlength="25" type="text" class="form-control" id="matriculaChange${users.id}" value = ${users.matricula}>
             </div>
             
                    <div class="mb-2">
