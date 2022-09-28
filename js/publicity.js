@@ -156,7 +156,7 @@ function printHTML() {
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop1${id}" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content admin-modal-bg ">
                     <div class="modal-header admin-modal-header">
                     
@@ -181,7 +181,7 @@ function printHTML() {
                 
                 <!-- Modal -->
                 <div class="modal fade   " id="exampleModal3${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog ">
+                <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content admin-modal-bg ">
                 <div class="modal-header admin-modal-header">
                 <button type="button" class="btn-close fs-5" data-bs-dismiss="modal" aria-label="Close">
@@ -206,16 +206,12 @@ function printHTML() {
                 </tr>
                 `;
 
+    // Agregar las publicidades al contenedor de la lista
+    tablePublicitysBody.appendChild(divPublicitys);
+    console.log(publicity.destacado);
+  });
 
-
-            // Agregar las publicidades al contenedor de la lista
-            tablePublicitysBody.appendChild(divPublicitys);
-            console.log(publicity.destacado)
-        });
-        
-
-        syncLocalStorage();
-
+  syncLocalStorage();
 
   syncLocalStorage();
 }
@@ -225,8 +221,6 @@ function cleanHTML() {
     tablePublicitysBody.removeChild(tablePublicitysBody.firstChild);
   }
 }
-
-
 
 function destacarPublicidad(id) {
   console.log(id);
