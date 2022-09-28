@@ -42,9 +42,8 @@ body {
   /* height: 87vh; */
 }
 
-
-.margin-t{
-  margin-top: 30px;
+.margin-t {
+  padding-top: 20px;
 }
 
 @media (max-width: 500px) {
@@ -54,9 +53,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .repeat-contra{
-    font-size:small;
+  .repeat-contra {
+    font-size: small;
   }
 }
-
-
