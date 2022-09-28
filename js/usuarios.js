@@ -26,9 +26,11 @@ const renderServicesAndDoctors = () => {
 
     for (let j = 0; j < doctors.length; j++) {
       doctor = doctors[j];
-      results.insertAdjacentHTML(
-        "beforeend",
-        `
+
+      if (doctor.condition === "active") {
+        results.insertAdjacentHTML(
+          "beforeend",
+          `
         <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0 item" data-keyword="${service.name} ${doctor.firstName} ${doctor.lastName} ${doctor.horarios}">
           <div class="card">
            <div class="card-body">
@@ -40,7 +42,10 @@ const renderServicesAndDoctors = () => {
           </div>
         </div>
       `
-      );
+        );
+      } else {
+        [];
+      }
     }
   }
 };
