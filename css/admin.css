@@ -73,7 +73,7 @@
   transition: 0.5s;
 }
 .modal-content-img-publicity {
-  background-image: url(/img/publicidad1.png);
+  background-image: url();
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -82,7 +82,7 @@
 }
 
 .modal-content-img-publicity-2 {
-  background-image: url(/img/publicidad2.jpg);
+  background-image: url();
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -91,7 +91,7 @@
 }
 
 .modal-content-img-publicity-3 {
-  background-image: url(/img/publicidad3.jpg);
+  background-image: url();
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
