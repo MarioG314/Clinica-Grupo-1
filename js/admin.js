@@ -339,8 +339,7 @@ const changeAdmin = (changeAdminId) => {
           nameChange.toUpperCase() ===
             localSTG[changeAdminId - 1].firstName.toUpperCase() &&
           lastNameChange.toUpperCase() ===
-            localSTG[changeAdminId - 1].lastName.toUpperCase() &&
-          roleChange === localSTG[changeAdminId - 1].role
+            localSTG[changeAdminId - 1].lastName.toUpperCase()
         ) {
           Swal.fire({
             icon: "error",
