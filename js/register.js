@@ -10,11 +10,9 @@ function register() {
   let email = document.getElementById("email").value;
   let pass = document.getElementById("pass").value;
   let checkPass = document.getElementById("checkPass").value;
-
   let localSTG = JSON.parse(localStorage.getItem("users")) || [];
 
   let errors = [];
-
   const array = [];
 
   if (firstName === "") {
@@ -22,7 +20,7 @@ function register() {
   }
 
   if (lastName === "") {
-    errors.push("Introducir nombre");
+    errors.push("Introducir apellido");
   }
 
   if (!validarEmail(email)) {
@@ -105,21 +103,33 @@ function registerDr() {
   let checkPass = document.getElementById("checkPassDr").value;
 
   let localSTG = JSON.parse(localStorage.getItem("users")) || [];
-
+  let errors = [];
   const array = [];
 
-  if (
-    firstName === "" ||
-    lastName === "" ||
-    email === "" ||
-    pass === "" ||
-    checkPass === "" ||
-    matricula === ""
-  ) {
+  if (firstName === "") {
+    errors.push("Introducir nombre");
+  }
+  if (lastName === "") {
+    errors.push("Introducir apellido");
+  }
+  if (!validarEmail(email)) {
+    errors.push("Email no valido");
+  }
+  if (matricula === "") {
+    errors.push("Introducir matricula");
+  }
+  if (pass === "") {
+    errors.push("Introducir contraseña");
+  }
+  if (checkPass === "") {
+    errors.push("Introducir contraseña");
+  }
+
+  if (errors.length > 0) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "¡Formulario incompleto!",
+      text: errors.join(", "),
     });
   } else {
     for (let i = 0; i < localSTG.length; i++) {
