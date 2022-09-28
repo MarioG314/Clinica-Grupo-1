@@ -206,11 +206,16 @@ function printHTML() {
                 </tr>
                 `;
 
-    // Agregar las publicidades al contenedor de la lista
-    tablePublicitysBody.appendChild(divPublicitys);
-    console.log(publicity.destacado);
-  });
-  esAmarillo();
+
+
+            // Agregar las publicidades al contenedor de la lista
+            tablePublicitysBody.appendChild(divPublicitys);
+            console.log(publicity.destacado)
+        });
+        
+
+        syncLocalStorage();
+
 
   syncLocalStorage();
 }
@@ -221,7 +226,7 @@ function cleanHTML() {
   }
 }
 
-function esAmarillo() {}
+
 
 function destacarPublicidad(id) {
   console.log(id);
